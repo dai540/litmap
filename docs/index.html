@@ -3,273 +3,279 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>litmap docs</title>
+  <title>litmap - reproducible literature mapping</title>
   <link rel="icon" type="image/svg+xml" href="assets/litmap-icon.svg">
   <style>
     :root {
-      --bg: #f4efe6;
-      --panel: rgba(255, 251, 245, 0.84);
-      --ink: #172029;
+      --bg: #f7f5ef;
+      --panel: #ffffff;
+      --ink: #182128;
+      --muted: #5d6770;
+      --line: #e6e8eb;
       --accent: #0f6c5c;
-      --accent-2: #a1452d;
-      --line: rgba(23, 32, 41, 0.12);
-      --muted: #58636d;
+      --accent-soft: #eef7f4;
+      --accent-2: #a35a39;
     }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
       color: var(--ink);
-      background:
-        radial-gradient(circle at top left, rgba(15, 108, 92, 0.18), transparent 26%),
-        radial-gradient(circle at bottom right, rgba(161, 69, 45, 0.14), transparent 24%),
-        linear-gradient(160deg, #ece6d9 0%, var(--bg) 48%, #edf3ef 100%);
-    }
-    main {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 52px 24px 84px;
-    }
-    .hero, .panel {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      box-shadow: 0 18px 60px rgba(23, 32, 41, 0.08);
-      backdrop-filter: blur(10px);
-    }
-    .hero {
-      padding: 42px;
-      margin-bottom: 28px;
-    }
-    .hero-head {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      margin-bottom: 14px;
-    }
-    .hero-head img {
-      width: 76px;
-      height: 76px;
-      flex: 0 0 auto;
-      border-radius: 22px;
-      box-shadow: 0 12px 28px rgba(23, 32, 41, 0.12);
-      background: rgba(255,255,255,0.7);
-    }
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      font-size: 0.8rem;
-      margin-bottom: 10px;
-    }
-    h1, h2 {
-      margin-top: 0;
-    }
-    h1 {
-      font-size: 3rem;
-      line-height: 1.08;
-      margin-bottom: 16px;
-      max-width: 11ch;
-    }
-    p {
+      background: var(--bg);
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
       line-height: 1.65;
-      font-size: 1.05rem;
     }
-    .grid {
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code, pre { font-family: Consolas, "Courier New", monospace; }
+    .page {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 28px 24px 64px;
+    }
+    .mast {
       display: grid;
-      gap: 22px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      margin-bottom: 28px;
+      grid-template-columns: 1.45fr 0.9fr;
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 24px;
     }
     .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
       padding: 24px;
+      box-shadow: 0 10px 28px rgba(23, 32, 41, 0.05);
     }
-    code, pre {
-      font-family: Consolas, "Courier New", monospace;
+    .hero-logo {
+      width: min(100%, 560px);
+      height: auto;
+      margin-bottom: 18px;
+      display: block;
     }
-    pre {
-      overflow-x: auto;
-      padding: 16px;
-      background: #1c252d;
-      color: #f9f5ee;
-      border-radius: 14px;
+    .hero-copy p {
+      margin: 0 0 14px;
+      font-size: 1.02rem;
     }
-    a {
-      color: var(--accent);
-    }
-    .kpis {
+    .badges {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 20px;
+      gap: 10px;
+      margin-top: 16px;
     }
-    .kpi {
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.72);
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       border: 1px solid var(--line);
-      min-width: 160px;
-    }
-    .kpi strong {
-      display: block;
-      font-size: 1.1rem;
-      margin-bottom: 4px;
-    }
-    .muted {
+      background: #fbfcfd;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.92rem;
       color: var(--muted);
     }
-    .section-title {
-      margin-bottom: 10px;
+    .badge strong {
+      color: var(--ink);
+      font-weight: 600;
     }
-    .hero a.secondary {
-      color: var(--accent-2);
+    .quick-nav h2,
+    .section h2 {
+      margin: 0 0 14px;
+      font-size: 1.18rem;
     }
-    .flow-panel {
+    .nav-list,
+    .link-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-list li,
+    .link-list li {
+      border-top: 1px solid var(--line);
+      padding: 12px 0;
+    }
+    .nav-list li:first-child,
+    .link-list li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+    .nav-list a {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .small {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+    .section-grid {
       display: grid;
-      grid-template-columns: 1.6fr 1fr;
-      gap: 22px;
-      align-items: start;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
     }
-    .flow-panel img {
+    .map-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .flow-figure {
       width: 100%;
       height: auto;
-      border-radius: 18px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.78);
+      border-radius: 14px;
+      background: #fff;
     }
-    .flow-list {
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      background: #fcfcfb;
+    }
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+    .card p {
       margin: 0;
-      padding-left: 22px;
+      color: var(--muted);
+      font-size: 0.95rem;
     }
-    .flow-list li {
+    .section {
+      margin-bottom: 24px;
+    }
+    .kicker {
+      display: inline-block;
       margin-bottom: 10px;
-      line-height: 1.7;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
     }
-    @media (max-width: 960px) {
-      .flow-panel {
+    pre {
+      margin: 0;
+      padding: 16px;
+      background: #132029;
+      color: #f7f8f5;
+      border-radius: 12px;
+      overflow-x: auto;
+      font-size: 0.92rem;
+    }
+    @media (max-width: 980px) {
+      .mast,
+      .section-grid,
+      .map-grid,
+      .card-grid {
         grid-template-columns: 1fr;
+      }
+      .page {
+        padding: 20px 16px 44px;
       }
     }
   </style>
 </head>
 <body>
-  <main>
-    <section class="hero">
-      <div class="eyebrow">litmap documentation</div>
-      <div class="hero-head">
-        <img src="assets/litmap-icon.svg" alt="litmap icon">
-        <h1>litmap documentation with tutorial articles</h1>
-      </div>
-      <p>
-        <strong>litmap</strong> now ships a documentation structure intended to be
-        built with MkDocs, which serves as the Python-side analogue of `pkgdown`.
-      </p>
-      <p>
-        The durable docs source lives in Markdown under <code>docs/</code>, but
-        this HTML entry point also links directly to readable tutorial articles
-        inside the repository.
-      </p>
-      <p>
-        Start with <a href="tutorials/index.html">the tutorial article index</a>
-        or the Markdown docs under <a href="index.md">docs/index.md</a>.
-      </p>
-      <div class="kpis">
-        <div class="kpi">
-          <strong>Installable</strong>
-          <span class="muted">PEP 621 metadata, `src/` layout, console script</span>
+  <main class="page">
+    <section class="mast">
+      <section class="panel hero-copy">
+        <img class="hero-logo" src="assets/litmap-logo.svg" alt="litmap logo">
+        <p><strong>litmap</strong> is a Python package for reproducible literature mapping. It is built for workflows that need a stable artifact tree, a clear clustering pipeline, and tutorials that end with concrete review outputs rather than screenshots.</p>
+        <p>The docs are organized so you can decide quickly where to start: tutorials if you want worked examples, API if you want the public interface, design if you want the architecture, and the repository if you want the implementation.</p>
+        <div class="badges">
+          <div class="badge"><strong>Tutorials</strong><span>5 topic-focused case studies</span></div>
+          <div class="badge"><strong>API</strong><span>public package surface</span></div>
+          <div class="badge"><strong>Artifacts</strong><span>labels, maps, PCA tables</span></div>
         </div>
-        <div class="kpi">
-          <strong>Reproducible</strong>
-          <span class="muted">explicit run artifacts and configuration snapshots</span>
-        </div>
-        <div class="kpi">
-          <strong>Extensible</strong>
-          <span class="muted">MkDocs site structure, tutorials, and case studies</span>
-        </div>
-      </div>
+      </section>
+
+      <aside class="panel quick-nav">
+        <h2>Contents</h2>
+        <ul class="nav-list">
+          <li><a href="tutorials/index.html">Tutorials</a><div class="small">Long-form case-study articles with result artifacts.</div></li>
+          <li><a href="getting-started.md">Getting started</a><div class="small">Installation, commands, and package layout.</div></li>
+          <li><a href="api.md">API surface</a><div class="small">Public functions, config loading, and execution entry points.</div></li>
+          <li><a href="design.md">Design notes</a><div class="small">Run semantics, artifact layout, and separation of spaces.</div></li>
+          <li><a href="https://github.com/dai540/litmap">GitHub repository</a><div class="small">Implementation, issues, and source browsing.</div></li>
+        </ul>
+      </aside>
     </section>
 
-    <section class="panel" style="margin-bottom: 28px;">
-      <h2 class="section-title">Pipeline at a glance</h2>
-      <p>
-        If you only read one section before opening the tutorials, read this one.
-        The package always moves through the same conceptual stages:
-        define a corpus, prepare paper text, build embeddings, cluster in analysis
-        space, and only then project into a separate 2D display space.
-      </p>
-      <div class="flow-panel">
-        <div>
-          <img src="assets/pipeline-overview.svg" alt="litmap pipeline overview">
-        </div>
-        <div>
-          <ol class="flow-list">
-            <li><strong>Sources and corpus prep</strong>: collect records from PubMed, OpenAlex, Semantic Scholar, or local files, then normalize them into one paper table.</li>
-            <li><strong>Embedding stage</strong>: convert title and abstract text into vectors that preserve thematic proximity between papers.</li>
-            <li><strong>Analysis space</strong>: normalize and reduce the embedding space for clustering; this is where HDBSCAN decides cluster membership.</li>
-            <li><strong>Display space</strong>: build a separate 2D PCA only for plotting, so the map stays readable without changing cluster logic.</li>
-            <li><strong>Artifacts</strong>: save labels, summaries, coordinates, PCA tables, and an HTML map so the run can be inspected later.</li>
-          </ol>
-          <p class="muted">
-            The most important design choice is the split between analysis space
-            and display space. Cluster count comes from the analysis pipeline, not
-            from the 2D picture.
-          </p>
-        </div>
-      </div>
-    </section>
+    <section class="map-grid">
+      <section class="panel section">
+        <span class="kicker">Pipeline</span>
+        <h2>How one run is structured</h2>
+        <p>The package uses a fixed conceptual flow: define a corpus, prepare paper text, build embeddings, cluster in analysis space, and project into a separate 2D display space. The split between analysis space and display space is the main thing to understand before reading the tutorials.</p>
+        <img class="flow-figure" src="assets/pipeline-overview.svg" alt="litmap pipeline overview">
+      </section>
 
-    <section class="grid">
-      <article class="panel">
-        <h2 class="section-title">Docs source</h2>
-        <p><code>docs/index.md</code>, <code>docs/getting-started.md</code>, <code>docs/design.md</code>, <code>docs/api.md</code>, and multiple tutorial articles.</p>
-        <p class="muted">This is closer to how mature Python packages structure long-form documentation.</p>
-      </article>
-      <article class="panel">
-        <h2 class="section-title">Docs build</h2>
+      <section class="panel section">
+        <span class="kicker">Start here</span>
+        <h2>Recommended reading order</h2>
+        <ol>
+          <li><strong>Tutorials</strong>: start with one domain article if you want to see outputs first.</li>
+          <li><strong>Getting started</strong>: then see how the package is installed and invoked.</li>
+          <li><strong>Design notes</strong>: read this if you want to understand why clustering and plotting are separated.</li>
+          <li><strong>API surface</strong>: use this when writing code against `litmap` directly.</li>
+        </ol>
         <pre>pip install -e .[docs]
 mkdocs serve
 mkdocs build</pre>
-      </article>
-      <article class="panel">
-        <h2 class="section-title">Tutorial stance</h2>
-        <p>Tutorials should include tables, figures, and result artifacts rather than ending at installation.</p>
-      </article>
+      </section>
     </section>
 
-    <section class="grid">
-      <article class="panel">
-        <h2 class="section-title">HTML tutorial set</h2>
-        <ul>
-          <li><a href="tutorials/cancer-immunotherapy.html">Cancer Immunotherapy</a></li>
-          <li><a href="tutorials/adc-landscape.html">Antibody-Drug Conjugates</a></li>
-          <li><a href="tutorials/protac-landscape.html">PROTAC</a></li>
-          <li><a href="tutorials/breast-cancer.html">Breast Cancer</a></li>
-          <li><a href="tutorials/lung-cancer.html">Lung Cancer</a></li>
-        </ul>
-      </article>
+    <section class="section-grid">
+      <section class="panel section">
+        <span class="kicker">Tutorials</span>
+        <h2>Case-study articles</h2>
+        <div class="card-grid">
+          <article class="card"><h3><a href="tutorials/cancer-immunotherapy.html">Cancer Immunotherapy</a></h3><p>Density-based map of biomarkers, microenvironment, combinations, and toxicity.</p></article>
+          <article class="card"><h3><a href="tutorials/adc-landscape.html">Antibody-Drug Conjugates</a></h3><p>Target biology, linker-payload chemistry, resistance, and safety translation.</p></article>
+          <article class="card"><h3><a href="tutorials/protac-landscape.html">PROTAC</a></h3><p>Degrader chemistry, ligase biology, ternary-complex logic, and PK translation.</p></article>
+          <article class="card"><h3><a href="tutorials/breast-cancer.html">Breast Cancer</a></h3><p>HER2 programs, endocrine resistance, TNBC immunotherapy, and MRD monitoring.</p></article>
+          <article class="card"><h3><a href="tutorials/lung-cancer.html">Lung Cancer</a></h3><p>Targeted resistance, KRAS strategy, immunotherapy biomarkers, and ctDNA monitoring.</p></article>
+        </div>
+      </section>
 
-      <article class="panel">
-        <h2 class="section-title">Bundled result artifacts</h2>
-        <p>Each case study can point to concrete result files:</p>
-        <ul>
-          <li><code>labels.csv</code></li>
-          <li><code>cluster_summary.csv</code></li>
-          <li><code>coords_2d.csv</code></li>
-          <li><code>map_interactive.html</code></li>
+      <section class="panel section">
+        <span class="kicker">Package docs</span>
+        <h2>Main documentation pages</h2>
+        <ul class="link-list">
+          <li><a href="getting-started.md">Getting started</a><div class="small">Install, invoke the CLI, and inspect the run layout.</div></li>
+          <li><a href="design.md">Design notes</a><div class="small">Architecture principles, run semantics, and artifact boundaries.</div></li>
+          <li><a href="api.md">API surface</a><div class="small">Public Python entry points and what is considered stable.</div></li>
+          <li><a href="tutorials/index.html">Tutorial index</a><div class="small">Gateway page for all long-form worked examples.</div></li>
         </ul>
-      </article>
+      </section>
     </section>
 
-    <section class="panel">
-      <h2 class="section-title">Why this changed</h2>
-      <p>
-        A good package README should not carry the entire documentation burden.
-        It should hand off to a richer HTML documentation site with multiple
-        articles, just as `pkgdown` does in the R ecosystem.
-      </p>
-      <p>
-        Continue with the HTML tutorial articles here, or build the full site
-        through MkDocs for the richer docs experience.
-      </p>
+    <section class="section-grid">
+      <section class="panel section">
+        <span class="kicker">Artifacts</span>
+        <h2>Outputs you should expect</h2>
+        <ul class="link-list">
+          <li><code>labels.csv</code><div class="small">Paper-level cluster labels and membership probabilities.</div></li>
+          <li><code>cluster_summary.csv</code><div class="small">Cluster sizes, persistence, and representative papers.</div></li>
+          <li><code>coords_2d.csv</code><div class="small">Display-space coordinates used for plotting.</div></li>
+          <li><code>map_interactive.html</code><div class="small">Interactive Plotly map with hover details.</div></li>
+        </ul>
+      </section>
+
+      <section class="panel section">
+        <span class="kicker">Project</span>
+        <h2>Repository and docs</h2>
+        <ul class="link-list">
+          <li><a href="https://github.com/dai540/litmap">GitHub repository</a><div class="small">Source code, issue tracking, and development history.</div></li>
+          <li><a href="https://dai540.github.io/litmap/">Published docs</a><div class="small">GitHub Pages entry point for the HTML docs.</div></li>
+          <li><a href="index.md">Markdown source</a><div class="small">Source page used by the static documentation build.</div></li>
+        </ul>
+      </section>
     </section>
   </main>
 </body>

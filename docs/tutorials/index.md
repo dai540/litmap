@@ -1,26 +1,27 @@
 # Tutorials
 
-These tutorials are written as compact case studies.
-Each one is meant to end with concrete deliverables rather than stopping at
-installation or configuration.
+These articles are the main worked examples for `litmap`.
+Each tutorial is written as a case study rather than a short setup note.
 
-## Available tutorials
+## What each article includes
 
-- [Immunotherapy Landscape](immunotherapy-landscape.md)
-- [OpenAlex Topic Scan](openalex-topic-scan.md)
-- [Local CSV Corpus](local-csv-corpus.md)
-- [Target Discovery Omics](target-discovery-omics.md)
-- [ADMET and Safety Landscape](admet-safety-landscape.md)
-- [Translational Biomarker Stratification](translational-biomarker-stratification.md)
+- a cluster map
+- cluster summary and paper-level tables
+- PCA diagnostics
+- suggested reading order
+- decision-oriented interpretation
 
-## Shared output pattern
+## Available case studies
 
-Across tutorials, the important outputs are:
+- [Cancer Immunotherapy](cancer-immunotherapy.html)
+- [Antibody-Drug Conjugates](adc-landscape.html)
+- [PROTAC](protac-landscape.html)
+- [Breast Cancer](breast-cancer.html)
+- [Lung Cancer](lung-cancer.html)
 
-- a paper-level label table
-- a cluster summary table
-- a 2D coordinate table
-- an interactive HTML map
+## Related pages
 
-These outputs are generated from bundled corpora by
-`scripts/build_case_studies.py`.
+- [Docs home](../index.md)
+- [Getting started](../getting-started.md)
+- [API surface](../api.md)
+- [Design notes](../design.md)

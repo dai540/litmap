@@ -5,183 +5,112 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>litmap tutorials</title>
   <link rel="icon" type="image/svg+xml" href="../assets/litmap-icon.svg">
-  <style>
-    :root {
-      --bg: #f6f4ee;
-      --panel: #ffffff;
-      --ink: #182128;
-      --muted: #5d6770;
-      --line: #e4e7ea;
-      --accent: #0f6c5c;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.65;
-    }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    code { font-family: Consolas, "Courier New", monospace; }
-    .page {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 28px 24px 56px;
-    }
-    .hero,
-    .grid {
-      display: grid;
-      grid-template-columns: 1.35fr 0.85fr;
-      gap: 24px;
-      margin-bottom: 24px;
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-    .panel,
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      box-shadow: 0 10px 28px rgba(23, 32, 41, 0.05);
-    }
-    .panel { padding: 24px; }
-    .card { padding: 18px; }
-    .hero-head {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 14px;
-    }
-    .hero-head img {
-      width: 60px;
-      height: 60px;
-      border-radius: 16px;
-    }
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 10px;
-      color: var(--accent);
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 700;
-    }
-    h1, h2, h3 { margin-top: 0; }
-    h2 { font-size: 1.2rem; margin-bottom: 12px; }
-    .muted { color: var(--muted); }
-    .list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    .list li {
-      border-top: 1px solid var(--line);
-      padding: 12px 0;
-    }
-    .list li:first-child {
-      border-top: 0;
-      padding-top: 0;
-    }
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-    @media (max-width: 960px) {
-      .hero,
-      .grid,
-      .cards {
-        grid-template-columns: 1fr;
-      }
-      .page {
-        padding: 18px 14px 40px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-  <main class="page">
-    <section class="hero">
-      <section class="panel">
-        <div class="eyebrow">Tutorials</div>
-        <div class="hero-head">
-          <img src="../assets/litmap-icon.svg" alt="litmap icon">
-          <div>
-            <h1>Case-study articles</h1>
-            <p class="muted">Worked examples that show what one `litmap` run looks like when read as a review artifact, not just as code execution.</p>
-          </div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand-link" href="../index.html">
+        <img src="../assets/litmap-icon.svg" alt="litmap icon">
+        <div class="brand-copy">
+          <strong>litmap</strong>
+          <span>reproducible literature mapping in Python</span>
         </div>
-        <p>Each article starts with a domain question, describes the corpus and analysis setup, then walks through cluster structure, PCA diagnostics, artifact tables, and review-oriented interpretation. The goal is to make the output usable for triage, reading order, and follow-up decisions.</p>
+      </a>
+      <nav class="topnav">
+        <a href="../index.html">Home</a>
+        <a class="active" href="index.html">Tutorials</a>
+        <a href="../getting-started.md">Getting started</a>
+        <a href="../api.md">API</a>
+        <a href="../design.md">Design</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-group">
+        <h2>Tutorials</h2>
+        <ul>
+          <li><a class="active" href="index.html">Overview</a></li>
+          <li><a href="cancer-immunotherapy.html">Cancer Immunotherapy</a></li>
+          <li><a href="adc-landscape.html">Antibody-Drug Conjugates</a></li>
+          <li><a href="protac-landscape.html">PROTAC</a></li>
+          <li><a href="breast-cancer.html">Breast Cancer</a></li>
+          <li><a href="lung-cancer.html">Lung Cancer</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h2>Related</h2>
+        <ul>
+          <li><a href="../index.html">Docs home</a></li>
+          <li><a href="../getting-started.md">Getting started</a></li>
+          <li><a href="../design.md">Design</a></li>
+          <li><a href="../api.md">API</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <div class="content">
+      <section class="hero">
+        <div class="eyebrow warm">Tutorials</div>
+        <h1>Case-study articles for review-oriented literature analysis.</h1>
+        <p class="lede">These pages are written as case studies rather than short setup notes. Each article starts from a domain question, exposes the structure discovered by the run, and ends with interpretation, reading order, and follow-up guidance.</p>
+        <div class="badge-row">
+          <div class="badge">Cluster map</div>
+          <div class="badge">PCA diagnostics</div>
+          <div class="badge">Theme summaries</div>
+          <div class="badge">Owner assignment and search expansion</div>
+        </div>
       </section>
 
-      <aside class="panel">
-        <div class="eyebrow">On this page</div>
-        <h2>How to use the tutorial hub</h2>
-        <ul class="list">
-          <li><a href="../index.html">Docs home</a><div class="muted">Return to the main package overview.</div></li>
-          <li><a href="../getting-started.md">Getting started</a><div class="muted">Install the package and inspect the run layout.</div></li>
-          <li><a href="../design.md">Design notes</a><div class="muted">Understand why analysis and display spaces are kept separate.</div></li>
-          <li><a href="../api.md">API surface</a><div class="muted">See the stable Python interface behind the examples.</div></li>
-        </ul>
-      </aside>
-    </section>
-
-    <section class="grid">
-      <section class="panel">
-        <div class="eyebrow">Shared structure</div>
+      <section class="section">
         <h2>What each article contains</h2>
-        <ul class="list">
-          <li><strong>Headline findings</strong><div class="muted">The fastest summary of what structure the run exposed.</div></li>
-          <li><strong>PCA diagnostics</strong><div class="muted">Tables and plots that explain the visible map geometry.</div></li>
-          <li><strong>Cluster interpretation</strong><div class="muted">Topic-specific reading of dense neighborhoods and bridge regions.</div></li>
-          <li><strong>Review operations</strong><div class="muted">Reading order, owner assignment, and search expansion ideas.</div></li>
-        </ul>
+        <div class="grid cols-2">
+          <article class="card">
+            <h3>Structural read</h3>
+            <p>Headline findings, cluster interpretation, and PCA summaries that explain why the map looks the way it does.</p>
+          </article>
+          <article class="card">
+            <h3>Review operations</h3>
+            <p>Reading order, representative papers, owner assignment, and search expansion ideas for the next pass.</p>
+          </article>
+        </div>
       </section>
 
-      <section class="panel">
-        <div class="eyebrow">Artifacts</div>
-        <h2>Files behind each article</h2>
-        <ul class="list">
-          <li><code>labels.csv</code><div class="muted">Paper-level labels and cluster membership strength.</div></li>
-          <li><code>cluster_summary.csv</code><div class="muted">Cluster size, persistence, and article-facing theme summaries.</div></li>
-          <li><code>coords_2d.csv</code><div class="muted">2D plotting coordinates for the display map.</div></li>
-          <li><code>map_interactive.html</code><div class="muted">Interactive Plotly view linked from the article.</div></li>
-        </ul>
+      <section class="section">
+        <h2>Available case studies</h2>
+        <div class="grid cols-2">
+          <article class="card">
+            <h3>Cancer Immunotherapy</h3>
+            <p>Biomarker logic, tumor microenvironment structure, IO combinations, and safety or resistance narratives.</p>
+            <a href="cancer-immunotherapy.html">Open article</a>
+          </article>
+          <article class="card">
+            <h3>Antibody-Drug Conjugates</h3>
+            <p>Target biology, linker-payload chemistry, translational biomarkers, and safety translation.</p>
+            <a href="adc-landscape.html">Open article</a>
+          </article>
+          <article class="card">
+            <h3>PROTAC</h3>
+            <p>Degrader chemistry, ligase strategy, ternary-complex design, and PK-facing questions.</p>
+            <a href="protac-landscape.html">Open article</a>
+          </article>
+          <article class="card">
+            <h3>Breast Cancer</h3>
+            <p>HER2, endocrine resistance, MRD monitoring, and immunotherapy programs in one landscape.</p>
+            <a href="breast-cancer.html">Open article</a>
+          </article>
+          <article class="card">
+            <h3>Lung Cancer</h3>
+            <p>Targeted resistance, KRAS strategy, biomarker logic, and ctDNA monitoring.</p>
+            <a href="lung-cancer.html">Open article</a>
+          </article>
+        </div>
       </section>
-    </section>
 
-    <section class="cards">
-      <article class="card">
-        <div class="eyebrow">Case study</div>
-        <h3><a href="cancer-immunotherapy.html">Cancer Immunotherapy</a></h3>
-        <p>Map biomarker logic, tumor microenvironment work, IO combinations, and safety or resistance narratives in one review-oriented landscape.</p>
-      </article>
-      <article class="card">
-        <div class="eyebrow">Case study</div>
-        <h3><a href="adc-landscape.html">Antibody-Drug Conjugates</a></h3>
-        <p>Inspect how target selection, linker-payload design, translational biomarkers, and safety translation separate or overlap.</p>
-      </article>
-      <article class="card">
-        <div class="eyebrow">Case study</div>
-        <h3><a href="protac-landscape.html">PROTAC</a></h3>
-        <p>Read a density-based map of degrader chemistry, ligase strategy, ternary-complex design, and PK or delivery questions.</p>
-      </article>
-      <article class="card">
-        <div class="eyebrow">Case study</div>
-        <h3><a href="breast-cancer.html">Breast Cancer</a></h3>
-        <p>Trace HER2, endocrine resistance, MRD, and immunotherapy themes as a literature landscape rather than a fixed partition.</p>
-      </article>
-      <article class="card">
-        <div class="eyebrow">Case study</div>
-        <h3><a href="lung-cancer.html">Lung Cancer</a></h3>
-        <p>Explore targeted resistance, KRAS, immunotherapy biomarkers, and ctDNA monitoring with cluster interpretation and review next steps.</p>
-      </article>
-    </section>
+      <p class="footer">Tutorial hub: <a href="https://dai540.github.io/litmap/tutorials/index.html">https://dai540.github.io/litmap/tutorials/index.html</a></p>
+    </div>
   </main>
 </body>
 </html>

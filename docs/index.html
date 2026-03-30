@@ -5,294 +5,125 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>litmap documentation</title>
   <link rel="icon" type="image/svg+xml" href="assets/litmap-icon.svg">
-  <style>
-    :root {
-      --bg: #f7f6f2;
-      --panel: #ffffff;
-      --ink: #182128;
-      --muted: #5f6870;
-      --line: #e3e7ea;
-      --accent: #0f6c5c;
-      --accent-soft: #eef7f4;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.65;
-    }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    code, pre { font-family: Consolas, "Courier New", monospace; }
-    .page {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 28px 24px 60px;
-    }
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: center;
-      margin-bottom: 18px;
-    }
-    .topbar-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      font-size: 0.95rem;
-    }
-    .brand-mini {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      color: var(--ink);
-    }
-    .brand-mini img {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-    }
-    .hero,
-    .section-grid,
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 0.9fr;
-      gap: 24px;
-    }
-    .hero { margin-bottom: 24px; }
-    .panel {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 10px 28px rgba(23, 32, 41, 0.045);
-    }
-    .hero-logo {
-      width: min(100%, 500px);
-      display: block;
-      height: auto;
-      margin-bottom: 18px;
-    }
-    .hero p {
-      margin: 0 0 14px;
-      font-size: 1rem;
-    }
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 18px;
-    }
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      padding: 0 16px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: #fbfcfd;
-      color: var(--ink);
-      font-weight: 600;
-    }
-    .button.primary {
-      color: var(--accent);
-      background: var(--accent-soft);
-      border-color: #d9ece6;
-    }
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 10px;
-      color: var(--accent);
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 700;
-    }
-    h1, h2, h3 { margin-top: 0; }
-    h2 {
-      margin-bottom: 12px;
-      font-size: 1.18rem;
-    }
-    .muted { color: var(--muted); }
-    .site-list,
-    .link-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    .site-list li,
-    .link-list li {
-      border-top: 1px solid var(--line);
-      padding: 12px 0;
-    }
-    .site-list li:first-child,
-    .link-list li:first-child {
-      border-top: 0;
-      padding-top: 0;
-    }
-    .site-list a {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 3px;
-    }
-    .summary-grid,
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-    .summary-grid { margin-top: 16px; }
-    .stat,
-    .card {
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: #fcfcfb;
-      padding: 16px;
-    }
-    .stat strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 1rem;
-    }
-    .stat span,
-    .card p {
-      color: var(--muted);
-      font-size: 0.94rem;
-      margin: 0;
-    }
-    .section-grid,
-    .footer-grid {
-      margin-bottom: 24px;
-    }
-    .figure {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      background: #fff;
-    }
-    pre {
-      margin: 0;
-      padding: 16px;
-      border-radius: 14px;
-      background: #132029;
-      color: #f8f9f6;
-      overflow-x: auto;
-      font-size: 0.92rem;
-    }
-    @media (max-width: 960px) {
-      .hero,
-      .section-grid,
-      .footer-grid,
-      .summary-grid,
-      .cards {
-        grid-template-columns: 1fr;
-      }
-      .topbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .page {
-        padding: 18px 14px 40px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="page">
-    <header class="topbar">
-      <div class="brand-mini">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand-link" href="index.html">
         <img src="assets/litmap-icon.svg" alt="litmap icon">
-        <span>litmap documentation</span>
-      </div>
-      <nav class="topbar-nav">
+        <div class="brand-copy">
+          <strong>litmap</strong>
+          <span>reproducible literature mapping in Python</span>
+        </div>
+      </a>
+      <nav class="topnav">
+        <a class="active" href="index.html">Home</a>
         <a href="tutorials/index.html">Tutorials</a>
         <a href="getting-started.md">Getting started</a>
-        <a href="design.md">Design</a>
         <a href="api.md">API</a>
-        <a href="https://github.com/dai540/litmap">GitHub</a>
+        <a href="design.md">Design</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <section class="hero">
-      <section class="panel">
-        <img class="hero-logo" src="assets/litmap-logo.svg" alt="litmap logo">
-        <p><strong>litmap</strong> is a Python package for reproducible literature mapping. It keeps one run readable by separating corpus preparation, analysis-space clustering, and display-space projection into explicit artifacts.</p>
-        <p class="muted">The package is for workflows where a map is not enough on its own. You also want labels, summaries, coordinates, diagnostics, and a stable run layout that can be reviewed later.</p>
-        <div class="button-row">
-          <a class="button primary" href="tutorials/index.html">Explore tutorials</a>
-          <a class="button" href="getting-started.md">Install and start</a>
-          <a class="button" href="api.md">Read the API</a>
-        </div>
-        <div class="summary-grid">
-          <div class="stat"><strong>Run-oriented</strong><span>Each analysis leaves behind a canonical directory of outputs.</span></div>
-          <div class="stat"><strong>Two-space design</strong><span>Clusters are decided in analysis space, then projected for display.</span></div>
-          <div class="stat"><strong>Review-ready</strong><span>Artifacts are designed for reading order, summaries, and follow-up work.</span></div>
-          <div class="stat"><strong>Tutorial-first</strong><span>Case-study articles show the package through concrete literature landscapes.</span></div>
-        </div>
-      </section>
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-group">
+        <h2>Overview</h2>
+        <ul>
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="tutorials/index.html">Tutorials</a></li>
+          <li><a href="getting-started.md">Getting started</a></li>
+          <li><a href="api.md">API</a></li>
+          <li><a href="design.md">Design</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-group">
+        <h2>Project</h2>
+        <ul>
+          <li><a href="https://github.com/dai540/litmap">Repository</a></li>
+          <li><a href="https://dai540.github.io/litmap/">Published docs</a></li>
+          <li><a href="assets/pipeline-overview.svg">Pipeline image</a></li>
+        </ul>
+      </div>
+    </aside>
 
-      <aside class="panel">
+    <div class="content">
+      <section class="hero">
         <div class="eyebrow">Documentation</div>
-        <h2>Site map</h2>
-        <ul class="site-list">
-          <li><a href="tutorials/index.html">Tutorials</a><div class="muted">Long-form case studies with maps, PCA diagnostics, tables, and interpretation.</div></li>
-          <li><a href="getting-started.md">Getting started</a><div class="muted">Installation, CLI entry points, and the expected run layout.</div></li>
-          <li><a href="design.md">Design notes</a><div class="muted">Architecture rationale, artifact boundaries, and reproducibility rules.</div></li>
-          <li><a href="api.md">API surface</a><div class="muted">Stable Python entry points for config loading and execution.</div></li>
-          <li><a href="https://dai540.github.io/litmap/">Published docs</a><div class="muted">Static HTML documentation served through GitHub Pages.</div></li>
-        </ul>
-      </aside>
-    </section>
-
-    <section class="section-grid">
-      <section class="panel">
-        <div class="eyebrow">Architecture</div>
-        <h2>How one run is organized</h2>
-        <p class="muted">The package follows a simple pipeline: build one canonical paper table, decide cluster structure in analysis space, and only then project into a separate display layer for reading and sharing.</p>
-        <img class="figure" src="assets/pipeline-overview.svg" alt="litmap architecture overview">
-      </section>
-
-      <section class="panel">
-        <div class="eyebrow">Quick start</div>
-        <h2>Minimal commands</h2>
-        <pre>pip install -e .[docs]
-mkdocs serve
-litmap init-config --output configs/my-run.yaml
-litmap show-plan --config configs/default.yaml</pre>
-      </section>
-    </section>
-
-    <section class="footer-grid">
-      <section class="panel">
-        <div class="eyebrow">Tutorials</div>
-        <h2>Current case studies</h2>
-        <div class="cards">
-          <article class="card"><h3><a href="tutorials/cancer-immunotherapy.html">Cancer Immunotherapy</a></h3><p>Biomarkers, tumor microenvironment, combinations, and safety structure.</p></article>
-          <article class="card"><h3><a href="tutorials/adc-landscape.html">Antibody-Drug Conjugates</a></h3><p>Target biology, linker-payload chemistry, resistance, and translational safety.</p></article>
-          <article class="card"><h3><a href="tutorials/protac-landscape.html">PROTAC</a></h3><p>Ligase strategy, ternary-complex design, chemistry, and PK-facing questions.</p></article>
-          <article class="card"><h3><a href="tutorials/breast-cancer.html">Breast Cancer</a></h3><p>HER2, endocrine resistance, MRD monitoring, and immunotherapy programs.</p></article>
-          <article class="card"><h3><a href="tutorials/lung-cancer.html">Lung Cancer</a></h3><p>Targeted resistance, KRAS strategy, biomarker logic, and ctDNA monitoring.</p></article>
+        <h1>litmap is a Python package for reproducible literature mapping.</h1>
+        <p class="lede">It organizes one run as a canonical paper table, an analysis-space clustering workflow, a separate display-space projection, and a set of review-ready artifacts that stay readable after the run is over.</p>
+        <div class="badge-row">
+          <div class="badge">Run-oriented artifacts</div>
+          <div class="badge">Analysis space vs display space</div>
+          <div class="badge">Interactive map export</div>
+          <div class="badge">Tutorial-first documentation</div>
         </div>
       </section>
 
-      <section class="panel">
-        <div class="eyebrow">Reference</div>
-        <h2>Core package pages</h2>
-        <ul class="link-list">
-          <li><a href="getting-started.md">Getting started</a><div class="muted">Install the package and inspect the intended workflow.</div></li>
-          <li><a href="design.md">Design notes</a><div class="muted">Understand the separation between analysis and display layers.</div></li>
-          <li><a href="api.md">API surface</a><div class="muted">See the Python interface exposed by the package.</div></li>
-          <li><a href="tutorials/index.html">Tutorial hub</a><div class="muted">Use the case-study index as the main pathway into the examples.</div></li>
-        </ul>
+      <section class="section">
+        <h2>Site map</h2>
+        <div class="grid cols-3">
+          <article class="card">
+            <h3>Tutorials</h3>
+            <p>Long-form case studies with cluster maps, tables, diagnostics, and interpretation.</p>
+            <a href="tutorials/index.html">Open Tutorials</a>
+          </article>
+          <article class="card">
+            <h3>Getting started</h3>
+            <p>Install the package, inspect the CLI, and understand the run layout.</p>
+            <a href="getting-started.md">Open Getting started</a>
+          </article>
+          <article class="card">
+            <h3>API</h3>
+            <p>See the public Python surface exposed by the package.</p>
+            <a href="api.md">Open API</a>
+          </article>
+          <article class="card">
+            <h3>Design</h3>
+            <p>Read the architectural decisions behind the package.</p>
+            <a href="design.md">Open Design</a>
+          </article>
+          <article class="card">
+            <h3>Repository</h3>
+            <p>Browse the implementation, issues, and project history on GitHub.</p>
+            <a href="https://github.com/dai540/litmap">Open Repository</a>
+          </article>
+          <article class="card">
+            <h3>Published docs</h3>
+            <p>Use the GitHub Pages build as the main static entry point.</p>
+            <a href="https://dai540.github.io/litmap/">Open Docs</a>
+          </article>
+        </div>
       </section>
-    </section>
+
+      <section class="section">
+        <h2>Quick links</h2>
+        <div class="grid cols-2">
+          <article class="card">
+            <img src="assets/pipeline-overview.svg" alt="litmap architecture overview">
+            <h3>Pipeline overview</h3>
+            <p>The shortest way to understand the package is to see the split between source and corpus, analysis space, and display and review outputs.</p>
+            <a href="assets/pipeline-overview.svg">Open diagram</a>
+          </article>
+          <article class="card">
+            <h3>Current tutorials</h3>
+            <p>The package currently ships case-study articles for cancer immunotherapy, ADC, PROTAC, breast cancer, and lung cancer.</p>
+            <a href="tutorials/index.html">Open tutorial hub</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Current status</h2>
+        <div class="callout">
+          Best current reading path: start with a tutorial article, then move to the design notes and API. Main current limitation: the computational backend is still maturing behind a clearer package and documentation surface.
+        </div>
+      </section>
+
+      <p class="footer">Static docs site: <a href="https://dai540.github.io/litmap/">https://dai540.github.io/litmap/</a></p>
+    </div>
   </main>
 </body>
 </html>

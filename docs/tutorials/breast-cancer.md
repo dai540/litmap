@@ -20,7 +20,7 @@ The article also uses PCA diagnostics to ground interpretation. Instead of simpl
 
 - Non-noise clusters discovered: 20
 - Noise points: 10
-- Largest non-noise cluster: 4 (Review hub: HER2 antibody combinations x ESR1 mutations), 250 records
+- Largest non-noise cluster: 19 (Monitoring and MRD), 250 records
 
 ## Generated artifacts
 

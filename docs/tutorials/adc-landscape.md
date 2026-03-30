@@ -20,7 +20,7 @@ The article also uses PCA diagnostics to explain why some neighborhoods are far 
 
 - Non-noise clusters discovered: 21
 - Noise points: 1
-- Largest non-noise cluster: 13 (Safety translation), 250 records
+- Largest non-noise cluster: 11 (Linker and payload), 250 records
 
 ## Generated artifacts
 

@@ -1,5 +1,9 @@
 # litmap
 
+<p align="center">
+  <img src="docs/assets/litmap-icon.svg" alt="litmap icon" width="120">
+</p>
+
 `litmap` is a Python package for reproducible literature mapping.
 It is meant for workflows where you need more than a notebook screenshot: you
 need a map, a label table, a cluster summary, and a traceable run directory.

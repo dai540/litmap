@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>litmap docs</title>
+  <link rel="icon" type="image/svg+xml" href="assets/litmap-icon.svg">
   <style>
     :root {
       --bg: #f4efe6;
@@ -38,6 +39,20 @@
     .hero {
       padding: 42px;
       margin-bottom: 28px;
+    }
+    .hero-head {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .hero-head img {
+      width: 76px;
+      height: 76px;
+      flex: 0 0 auto;
+      border-radius: 22px;
+      box-shadow: 0 12px 28px rgba(23, 32, 41, 0.12);
+      background: rgba(255,255,255,0.7);
     }
     .eyebrow {
       text-transform: uppercase;
@@ -140,7 +155,10 @@
   <main>
     <section class="hero">
       <div class="eyebrow">litmap documentation</div>
-      <h1>litmap documentation with tutorial articles</h1>
+      <div class="hero-head">
+        <img src="assets/litmap-icon.svg" alt="litmap icon">
+        <h1>litmap documentation with tutorial articles</h1>
+      </div>
       <p>
         <strong>litmap</strong> now ships a documentation structure intended to be
         built with MkDocs, which serves as the Python-side analogue of `pkgdown`.

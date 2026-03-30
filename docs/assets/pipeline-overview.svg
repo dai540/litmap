@@ -1,121 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" fill="none">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="760" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#F6F1E8"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7F5EF"/>
       <stop offset="1" stop-color="#EEF5F1"/>
     </linearGradient>
-    <linearGradient id="hero" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#193B33"/>
-      <stop offset="1" stop-color="#0F6C5C"/>
-    </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="170%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#172029" flood-opacity="0.10"/>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#172029" flood-opacity="0.07"/>
     </filter>
-    <marker id="arrow-green" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2A6D61"/>
-    </marker>
-    <marker id="arrow-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#A45B3A"/>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#0F6C5C"/>
     </marker>
     <style>
-      .title { font: 700 27px Georgia, 'Palatino Linotype', serif; fill: #F6F7F2; }
-      .subtitle { font: 400 14px Georgia, 'Palatino Linotype', serif; fill: rgba(246,247,242,0.86); }
-      .section { font: 700 17px Georgia, 'Palatino Linotype', serif; fill: #172029; }
-      .section-sub { font: 400 12px Georgia, 'Palatino Linotype', serif; fill: #58636D; }
-      .box-title { font: 700 15px Georgia, 'Palatino Linotype', serif; fill: #172029; }
-      .box-text { font: 400 12px Georgia, 'Palatino Linotype', serif; fill: #44515A; }
-      .chip { font: 400 11px Consolas, 'Courier New', monospace; fill: #0F6C5C; }
-      .label { font: 700 12px Georgia, 'Palatino Linotype', serif; fill: #0F6C5C; }
-      .note { font: 400 12px Georgia, 'Palatino Linotype', serif; fill: #44515A; }
+      .title { font: 700 28px 'Segoe UI', Arial, sans-serif; fill: #182128; }
+      .subtitle { font: 400 15px 'Segoe UI', Arial, sans-serif; fill: #5D6770; }
+      .eyebrow { font: 700 12px 'Segoe UI', Arial, sans-serif; fill: #0F6C5C; letter-spacing: 0.08em; }
+      .heading { font: 700 22px 'Segoe UI', Arial, sans-serif; fill: #182128; }
+      .text { font: 400 15px 'Segoe UI', Arial, sans-serif; fill: #495760; }
+      .code { font: 400 14px Consolas, 'Courier New', monospace; fill: #0F6C5C; }
+      .note { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #0F6C5C; }
     </style>
   </defs>
 
-  <rect width="1200" height="760" rx="30" fill="url(#bg)"/>
+  <rect width="1200" height="420" rx="28" fill="url(#bg)"/>
 
-  <rect x="34" y="28" width="1132" height="92" rx="24" fill="url(#hero)" filter="url(#shadow)"/>
-  <text x="64" y="66" class="title">litmap architecture overview</text>
-  <text x="64" y="92" class="subtitle">A single run moves through three layers: source and corpus, analysis space, then display and review outputs.</text>
+  <text x="56" y="64" class="title">litmap architecture</text>
+  <text x="56" y="92" class="subtitle">Cluster structure is decided in analysis space, then projected into a separate display layer for review.</text>
 
-  <rect x="48" y="152" width="1104" height="154" rx="24" fill="#FFFDF9" stroke="#D8DED8" filter="url(#shadow)"/>
-  <text x="76" y="188" class="section">1. Source and corpus layer</text>
-  <text x="76" y="210" class="section-sub">Collect records, normalize fields, and build the canonical paper table used by the run.</text>
+  <rect x="52" y="132" width="300" height="192" rx="24" fill="#FFFFFF" stroke="#E4E7EA" filter="url(#shadow)"/>
+  <text x="84" y="168" class="eyebrow">Source and corpus</text>
+  <text x="84" y="204" class="heading">Build one canonical paper table</text>
+  <text x="84" y="238" class="text">Ingest records from external sources or local files.</text>
+  <text x="84" y="264" class="text">Normalize fields and compose embedding text.</text>
+  <text x="84" y="300" class="code">papers.parquet</text>
 
-  <rect x="84" y="236" width="220" height="42" rx="14" fill="#F4F8F6" stroke="#D7E3DD"/>
-  <text x="108" y="262" class="box-title">Sources</text>
-  <text x="176" y="262" class="box-text">PubMed / OpenAlex / local CSV</text>
+  <rect x="450" y="132" width="300" height="192" rx="24" fill="#FFFFFF" stroke="#E4E7EA" filter="url(#shadow)"/>
+  <text x="482" y="168" class="eyebrow">Analysis space</text>
+  <text x="482" y="204" class="heading">Decide cluster membership here</text>
+  <text x="482" y="238" class="text">Build embeddings, L2-normalize, reduce for clustering,</text>
+  <text x="482" y="262" class="text">then run HDBSCAN to obtain labels and probabilities.</text>
+  <text x="482" y="300" class="code">embeddings - PCA - labels.csv</text>
 
-  <rect x="356" y="236" width="220" height="42" rx="14" fill="#F4F8F6" stroke="#D7E3DD"/>
-  <text x="380" y="262" class="box-title">Normalize records</text>
+  <rect x="848" y="132" width="300" height="192" rx="24" fill="#FFFFFF" stroke="#E4E7EA" filter="url(#shadow)"/>
+  <text x="880" y="168" class="eyebrow">Display and review</text>
+  <text x="880" y="204" class="heading">Project for reading and sharing</text>
+  <text x="880" y="238" class="text">Create a separate 2D plotting space and export</text>
+  <text x="880" y="262" class="text">maps, summary tables, diagnostics, and manifests.</text>
+  <text x="880" y="300" class="code">coords_2d.csv - map_interactive.html</text>
 
-  <rect x="628" y="236" width="220" height="42" rx="14" fill="#F4F8F6" stroke="#D7E3DD"/>
-  <text x="652" y="262" class="box-title">Build paper text</text>
-  <text x="767" y="262" class="box-text">title [SEP] abstract</text>
+  <path d="M352 228H450" stroke="#0F6C5C" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M750 228H848" stroke="#0F6C5C" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow)"/>
 
-  <rect x="900" y="236" width="216" height="42" rx="14" fill="#F4F8F6" stroke="#D7E3DD"/>
-  <text x="924" y="262" class="box-title">Corpus artifacts</text>
-  <text x="1038" y="262" class="chip">papers.parquet</text>
-
-  <path d="M304 257 H356" stroke="#2A6D61" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-green)"/>
-  <path d="M576 257 H628" stroke="#2A6D61" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-green)"/>
-  <path d="M848 257 H900" stroke="#2A6D61" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-green)"/>
-
-  <rect x="48" y="334" width="1104" height="196" rx="24" fill="#FFFDF9" stroke="#D8DED8" filter="url(#shadow)"/>
-  <text x="76" y="370" class="section">2. Analysis space</text>
-  <text x="76" y="392" class="section-sub">This layer is the authority. Cluster membership is determined here, not in the 2D map.</text>
-
-  <rect x="84" y="426" width="204" height="54" rx="16" fill="#F7FBF9" stroke="#D9E7E1"/>
-  <text x="108" y="449" class="box-title">Embed papers</text>
-  <text x="108" y="468" class="box-text">vector representation</text>
-  <text x="108" y="486" class="chip">embeddings.npy</text>
-
-  <rect x="340" y="426" width="204" height="54" rx="16" fill="#F7FBF9" stroke="#D9E7E1"/>
-  <text x="364" y="449" class="box-title">L2 normalize</text>
-  <text x="364" y="468" class="box-text">unit-length paper vectors</text>
-  <text x="364" y="486" class="chip">embeddings_l2.npy</text>
-
-  <rect x="596" y="426" width="204" height="54" rx="16" fill="#F7FBF9" stroke="#D9E7E1"/>
-  <text x="620" y="449" class="box-title">PCA for clustering</text>
-  <text x="620" y="468" class="box-text">analysis geometry</text>
-  <text x="620" y="486" class="chip">pca50.npy</text>
-
-  <rect x="852" y="426" width="236" height="54" rx="16" fill="#F7FBF9" stroke="#D9E7E1"/>
-  <text x="876" y="449" class="box-title">HDBSCAN</text>
-  <text x="876" y="468" class="box-text">clusters, probabilities, noise</text>
-  <text x="876" y="486" class="chip">labels.csv / cluster_summary.csv</text>
-
-  <path d="M288 453 H340" stroke="#2A6D61" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-green)"/>
-  <path d="M544 453 H596" stroke="#2A6D61" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-green)"/>
-  <path d="M800 453 H852" stroke="#2A6D61" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-green)"/>
-
-  <rect x="84" y="500" width="1004" height="18" rx="9" fill="#EEF5F1"/>
-  <text x="98" y="513" class="note">Design rule: analysis space decides the clusters. Display space only makes them viewable.</text>
-
-  <rect x="48" y="558" width="1104" height="154" rx="24" fill="#FFFDF9" stroke="#D8DED8" filter="url(#shadow)"/>
-  <text x="76" y="594" class="section">3. Display and review layer</text>
-  <text x="76" y="616" class="section-sub">Project into 2D for the map, then turn outputs into artifacts a human can review and reuse.</text>
-
-  <rect x="84" y="642" width="214" height="42" rx="14" fill="#FBF7F2" stroke="#E8DED5"/>
-  <text x="108" y="668" class="box-title">PCA for plotting</text>
-  <text x="226" y="668" class="chip">coords_2d.csv</text>
-
-  <rect x="352" y="642" width="214" height="42" rx="14" fill="#FBF7F2" stroke="#E8DED5"/>
-  <text x="376" y="668" class="box-title">Interactive map</text>
-  <text x="474" y="668" class="chip">map_interactive.html</text>
-
-  <rect x="620" y="642" width="214" height="42" rx="14" fill="#FBF7F2" stroke="#E8DED5"/>
-  <text x="644" y="668" class="box-title">Review packets</text>
-  <text x="746" y="668" class="box-text">reading order / owners</text>
-
-  <rect x="888" y="642" width="214" height="42" rx="14" fill="#FBF7F2" stroke="#E8DED5"/>
-  <text x="912" y="668" class="box-title">Run artifacts</text>
-  <text x="1000" y="668" class="box-text">manifest / tables / diagnostics</text>
-
-  <path d="M298 663 H352" stroke="#A45B3A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-amber)"/>
-  <path d="M566 663 H620" stroke="#A45B3A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-amber)"/>
-  <path d="M834 663 H888" stroke="#A45B3A" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-amber)"/>
-
-  <rect x="924" y="154" width="192" height="48" rx="14" fill="#FFFDF9" stroke="#E5EAE6"/>
-  <text x="944" y="174" class="label">Key idea</text>
-  <text x="944" y="192" class="note">Cluster in analysis space.</text>
-  <text x="944" y="208" class="note">Plot in display space.</text>
+  <rect x="386" y="352" width="428" height="38" rx="19" fill="#EAF6F2"/>
+  <text x="416" y="376" class="note">Design rule: analysis space defines clusters. Display space only makes them readable.</text>
 </svg>

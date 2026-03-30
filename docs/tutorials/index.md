@@ -1,17 +1,17 @@
 # Tutorials
 
-These articles are the main worked examples for `litmap`.
-Each tutorial is written as a case study rather than a short setup note.
+The tutorial pages are long-form case studies.
 
-## What each article includes
+Each article is meant to be read like a review artifact, not a setup snippet.
+That means every tutorial includes:
 
 - a cluster map
-- cluster summary and paper-level tables
+- cluster and paper tables
 - PCA diagnostics
-- suggested reading order
-- decision-oriented interpretation
+- interpretation and review guidance
+- suggested next actions
 
-## Available case studies
+Available case studies:
 
 - [Cancer Immunotherapy](cancer-immunotherapy.html)
 - [Antibody-Drug Conjugates](adc-landscape.html)
@@ -19,9 +19,9 @@ Each tutorial is written as a case study rather than a short setup note.
 - [Breast Cancer](breast-cancer.html)
 - [Lung Cancer](lung-cancer.html)
 
-## Related pages
+Related pages:
 
 - [Docs home](../index.md)
 - [Getting started](../getting-started.md)
-- [API surface](../api.md)
 - [Design notes](../design.md)
+- [API surface](../api.md)

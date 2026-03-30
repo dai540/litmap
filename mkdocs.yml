@@ -29,9 +29,8 @@ nav:
   - API Surface: api.md
   - Tutorials:
       - Overview: tutorials/index.md
-      - Immunotherapy Landscape: tutorials/immunotherapy-landscape.md
-      - OpenAlex Topic Scan: tutorials/openalex-topic-scan.md
-      - Local CSV Corpus: tutorials/local-csv-corpus.md
-      - Target Discovery Omics: tutorials/target-discovery-omics.md
-      - ADMET and Safety Landscape: tutorials/admet-safety-landscape.md
-      - Translational Biomarker Stratification: tutorials/translational-biomarker-stratification.md
+      - Cancer Immunotherapy: tutorials/cancer-immunotherapy.md
+      - Antibody-Drug Conjugates: tutorials/adc-landscape.md
+      - PROTAC: tutorials/protac-landscape.md
+      - Breast Cancer: tutorials/breast-cancer.md
+      - Lung Cancer: tutorials/lung-cancer.md

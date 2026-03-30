@@ -1,40 +1,21 @@
 # litmap
 
 `litmap` is a Python package for reproducible literature mapping.
-It is designed around a simple idea:
 
-- define a corpus
-- prepare normalized paper records
-- build embeddings
-- cluster in analysis space
-- project into a separate 2D display space
+Use the documentation home as the main site map:
 
-The HTML docs home mirrors that same idea and adds a site map for tutorials,
-API references, design notes, and the repository itself.
+- [Tutorials](tutorials/index.md)
+- [Getting started](getting-started.md)
+- [Design notes](design.md)
+- [API surface](api.md)
+- [GitHub repository](https://github.com/dai540/litmap)
 
-## Start here
+The shortest architectural summary is:
 
-- [Tutorials](tutorials/index.md): topic-focused case-study articles with concrete outputs
-- [Getting started](getting-started.md): installation, commands, and package layout
-- [API surface](api.md): the stable public Python interface
-- [Design notes](design.md): architecture principles and run semantics
-- [GitHub repository](https://github.com/dai540/litmap): source, issues, and development history
+1. build one canonical paper table
+2. decide cluster structure in analysis space
+3. project into a separate display space for review
 
-## Main outputs
-
-A run is expected to leave behind inspectable artifacts such as:
-
-- `labels.csv`
-- `cluster_summary.csv`
-- `coords_2d.csv`
-- `map_interactive.html`
-
-## Architecture overview
-
-The HTML docs include a visual overview of the pipeline:
+See the visual version here:
 
 - [Pipeline overview chart](assets/pipeline-overview.svg)
-
-The key design rule is that **analysis space** and **display space** stay
-separate. Cluster membership is decided in the analysis pipeline; the 2D map is
-only the readable projection.

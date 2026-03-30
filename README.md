@@ -1,92 +1,70 @@
 # litmap
 
 <p align="center">
-  <img src="docs/assets/litmap-icon.svg" alt="litmap icon" width="72">
+  <img src="docs/assets/litmap-icon.svg" alt="litmap icon" width="64">
 </p>
+
+<p align="center"><strong>Reproducible literature mapping in Python.</strong></p>
 
 <p align="center">
-  <a href="https://github.com/dai540/litmap">Repository</a> ·
-  <a href="https://dai540.github.io/litmap/">Docs</a>
+  <a href="https://dai540.github.io/litmap/">Documentation</a> |
+  <a href="https://dai540.github.io/litmap/tutorials/index.html">Tutorials</a> |
+  <a href="https://github.com/dai540/litmap">GitHub</a>
 </p>
 
-`litmap` is a Python package for reproducible literature mapping.
-It is meant for workflows where you need more than a notebook screenshot: you
-need a map, a label table, a cluster summary, and a traceable run directory.
+`litmap` is a Python package for building literature landscapes that stay readable after the run is over. The package is organized around explicit artifacts: a canonical paper table, embeddings, clustering outputs, 2D coordinates, and an interactive map.
 
-The package treats literature mapping as a sequence of explicit stages:
+Like the documentation site, this README is meant to answer three questions quickly:
 
-1. source ingestion
-2. corpus preparation
-3. embedding
-4. analysis-space reduction and clustering
-5. display-space projection
-6. interactive map export
+1. What does the package do?
+2. Where should I start reading?
+3. What files come out of one run?
 
-That structure keeps clustering logic separate from visual layout and makes the
-resulting outputs easier to trust, debug, and share.
+## What litmap does
 
-## What this repository includes
+`litmap` treats one analysis as a simple architecture:
 
-- installable package with `src/` layout and console entry point
-- typed configuration model with YAML or JSON loading
-- run-oriented artifact layout with `manifest.json` and `config.snapshot.yaml`
-- package modules split by responsibility rather than by notebook step
-- a MkDocs-based documentation site, analogous to `pkgdown` in the R ecosystem
-- multiple tutorials with bundled result artifacts and figures
+1. define a corpus
+2. normalize paper records
+3. build embeddings
+4. cluster in analysis space
+5. project into a separate 2D display space
+6. export review-ready artifacts
+
+The core design rule is: **cluster in analysis space, plot in display space**.
+
+## Start here
+
+| Page | Why it exists |
+| --- | --- |
+| [Documentation home](https://dai540.github.io/litmap/) | Main entry point with the site map and pipeline overview |
+| [Tutorials](https://dai540.github.io/litmap/tutorials/index.html) | Worked case studies with maps, tables, and interpretation |
+| [Getting started](docs/getting-started.md) | Installation, commands, and run layout |
+| [Design notes](docs/design.md) | Architecture, run semantics, and artifact boundaries |
+| [API surface](docs/api.md) | Stable Python entry points |
 
 ## Installation
 
-Minimal editable install:
+Editable install:
 
 ```bash
 pip install -e .
 ```
 
-Editable install with YAML support:
+With YAML support:
 
 ```bash
 pip install -e .[yaml]
 ```
 
-Editable install with the intended analysis stack:
-
-```bash
-pip install -e .[full]
-```
-
-Editable install with documentation tooling:
+With docs tooling:
 
 ```bash
 pip install -e .[docs]
 mkdocs serve
 ```
 
-## Command line
-
-```bash
-litmap version
-litmap init-config --output configs/my-run.yaml
-litmap describe-layout
-litmap show-plan --config configs/default.yaml
-```
-
-## Python API
-
-```python
-from litmap import load_config, describe_pipeline, run_pipeline
-
-config = load_config("configs/default.yaml")
-steps = describe_pipeline(config)
-result = run_pipeline(config)
-```
-
-`describe_pipeline()` gives a stable blueprint of the intended stages and
-outputs. `run_pipeline()` currently returns a structured run description and is
-the public boundary that future execution backends should keep.
-
-## Output layout
-
-`litmap` treats the run directory as part of the package contract:
+## Package shape
 
 ```text
 runs/
@@ -100,63 +78,37 @@ runs/
     reports/
 ```
 
-The recommended run name is human-readable, such as `my-topic` or
-`immunotherapy-landscape`. It should not depend on a timestamp.
-
-## Documentation site
-
-The long-form documentation lives in `docs/` and is designed to be built into a
-static HTML site with MkDocs. This is the Python-side analogue of `pkgdown`.
-
-Main entry points:
-
-- Docs home: [docs/index.md](docs/index.md)
-- Getting started: [docs/getting-started.md](docs/getting-started.md)
-- Design notes: [docs/design.md](docs/design.md)
-- API surface: [docs/api.md](docs/api.md)
-- Tutorials index: [docs/tutorials/index.md](docs/tutorials/index.md)
-
-## Tutorials and bundled outputs
-
-The tutorials are written to end at concrete outputs a user would care about:
+Expected outputs include:
 
 - `labels.csv`
 - `cluster_summary.csv`
 - `coords_2d.csv`
 - `map_interactive.html`
 
-Included tutorial articles:
+## Public entry points
 
-- [Immunotherapy Landscape](docs/tutorials/immunotherapy-landscape.md)
-- [OpenAlex Topic Scan](docs/tutorials/openalex-topic-scan.md)
-- [Local CSV Corpus](docs/tutorials/local-csv-corpus.md)
-- [Target Discovery Omics](docs/tutorials/target-discovery-omics.md)
-- [ADMET and Safety Landscape](docs/tutorials/admet-safety-landscape.md)
-- [Translational Biomarker Stratification](docs/tutorials/translational-biomarker-stratification.md)
+CLI:
 
-Bundled case-study outputs:
+```bash
+litmap version
+litmap init-config --output configs/my-run.yaml
+litmap describe-layout
+litmap show-plan --config configs/default.yaml
+```
 
-- [docs/case-studies/immunotherapy-landscape](docs/case-studies/immunotherapy-landscape)
-- [docs/case-studies/openalex-topic-scan](docs/case-studies/openalex-topic-scan)
-- [docs/case-studies/local-csv-corpus](docs/case-studies/local-csv-corpus)
+Python:
 
-## Design principles
+```python
+from litmap import load_config, describe_pipeline, run_pipeline
 
-- Reproducibility before convenience
-- Explicit artifacts before hidden state
-- Source adapters at the boundary
-- Analysis space and display space kept separate
-- Thin CLI over a reusable Python API
-- Documentation should show final outputs, not only setup commands
+config = load_config("configs/default.yaml")
+steps = describe_pipeline(config)
+result = run_pipeline(config)
+```
 
-## Project status
+## Documentation style
 
-This repository now has the structure and packaging expected from a serious
-Python package and a Python-native static docs workflow. The computational
-backends are still evolving behind that interface. The documentation case
-studies are generated from bundled tutorial corpora by
-`scripts/build_case_studies.py`, which provides an actual deterministic analysis
-path for the docs without relying on heavyweight external dependencies.
+The project docs are intentionally closer to a package documentation site than to a notebook dump. The home page is a map of the project, and the tutorial pages are long-form case studies that end in concrete artifacts a review team could inspect.
 
 ## Development
 

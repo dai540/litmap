@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>litmap - reproducible literature mapping</title>
+  <title>litmap documentation</title>
   <link rel="icon" type="image/svg+xml" href="assets/litmap-icon.svg">
   <style>
     :root {
-      --bg: #f7f5ef;
+      --bg: #f6f4ee;
       --panel: #ffffff;
       --ink: #182128;
       --muted: #5d6770;
-      --line: #e6e8eb;
+      --line: #e4e7ea;
       --accent: #0f6c5c;
-      --accent-soft: #eef7f4;
-      --accent-2: #a35a39;
+      --accent-soft: #edf7f4;
+      --warm: #9d5b3e;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      color: var(--ink);
       background: var(--bg);
+      color: var(--ink);
       font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
       line-height: 1.65;
     }
@@ -28,252 +28,240 @@
     a:hover { text-decoration: underline; }
     code, pre { font-family: Consolas, "Courier New", monospace; }
     .page {
-      max-width: 1240px;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 28px 24px 64px;
+      padding: 28px 24px 56px;
     }
-    .mast {
+    .hero {
       display: grid;
-      grid-template-columns: 1.45fr 0.9fr;
+      grid-template-columns: 1.35fr 0.85fr;
       gap: 24px;
-      align-items: start;
       margin-bottom: 24px;
+      align-items: stretch;
     }
     .panel {
       background: var(--panel);
       border: 1px solid var(--line);
-      border-radius: 18px;
+      border-radius: 20px;
       padding: 24px;
       box-shadow: 0 10px 28px rgba(23, 32, 41, 0.05);
     }
     .hero-logo {
-      width: min(100%, 560px);
-      height: auto;
-      margin-bottom: 18px;
+      width: min(100%, 540px);
       display: block;
+      margin-bottom: 16px;
+      height: auto;
     }
-    .hero-copy p {
+    .hero p {
       margin: 0 0 14px;
-      font-size: 1.02rem;
+      font-size: 1rem;
     }
-    .badges {
+    .button-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
+      gap: 12px;
+      margin-top: 18px;
     }
-    .badge {
+    .button {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
       border: 1px solid var(--line);
       background: #fbfcfd;
-      border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 0.92rem;
-      color: var(--muted);
-    }
-    .badge strong {
       color: var(--ink);
       font-weight: 600;
     }
-    .quick-nav h2,
-    .section h2 {
-      margin: 0 0 14px;
-      font-size: 1.18rem;
+    .button.primary {
+      border-color: #d8ece6;
+      background: var(--accent-soft);
+      color: var(--accent);
     }
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--accent);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+    h1, h2, h3 { margin-top: 0; }
+    h2 { font-size: 1.2rem; margin-bottom: 12px; }
+    .muted { color: var(--muted); }
     .nav-list,
-    .link-list {
+    .clean-list {
       list-style: none;
       margin: 0;
       padding: 0;
     }
     .nav-list li,
-    .link-list li {
+    .clean-list li {
       border-top: 1px solid var(--line);
       padding: 12px 0;
     }
     .nav-list li:first-child,
-    .link-list li:first-child {
+    .clean-list li:first-child {
       border-top: 0;
       padding-top: 0;
     }
     .nav-list a {
-      font-weight: 600;
       display: block;
-      margin-bottom: 4px;
+      font-weight: 600;
+      margin-bottom: 3px;
     }
-    .small {
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-    .section-grid {
+    .grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 24px;
       margin-bottom: 24px;
     }
-    .map-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 0.9fr;
-      gap: 24px;
-      margin-bottom: 24px;
-    }
-    .flow-figure {
-      width: 100%;
-      height: auto;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: #fff;
-    }
-    .card-grid {
+    .cards {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 16px;
-      margin-top: 16px;
     }
     .card {
       border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 16px;
+      border-radius: 16px;
       background: #fcfcfb;
+      padding: 18px;
     }
     .card h3 {
-      margin: 0 0 8px;
       font-size: 1rem;
+      margin-bottom: 8px;
     }
     .card p {
       margin: 0;
       color: var(--muted);
       font-size: 0.95rem;
     }
-    .section {
-      margin-bottom: 24px;
+    .figure {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
     }
-    .kicker {
-      display: inline-block;
-      margin-bottom: 10px;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 700;
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fbfcfd;
+      padding: 14px 16px;
+    }
+    .stat strong {
+      display: block;
+      color: var(--ink);
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .stat span {
+      color: var(--muted);
+      font-size: 0.92rem;
     }
     pre {
       margin: 0;
       padding: 16px;
+      border-radius: 14px;
       background: #132029;
-      color: #f7f8f5;
-      border-radius: 12px;
+      color: #f8f9f6;
       overflow-x: auto;
       font-size: 0.92rem;
     }
-    @media (max-width: 980px) {
-      .mast,
-      .section-grid,
-      .map-grid,
-      .card-grid {
+    @media (max-width: 960px) {
+      .hero,
+      .grid,
+      .cards,
+      .summary {
         grid-template-columns: 1fr;
       }
       .page {
-        padding: 20px 16px 44px;
+        padding: 18px 14px 40px;
       }
     }
   </style>
 </head>
 <body>
   <main class="page">
-    <section class="mast">
-      <section class="panel hero-copy">
+    <section class="hero">
+      <section class="panel">
         <img class="hero-logo" src="assets/litmap-logo.svg" alt="litmap logo">
-        <p><strong>litmap</strong> is a Python package for reproducible literature mapping. It is built for workflows that need a stable artifact tree, a clear clustering pipeline, and tutorials that end with concrete review outputs rather than screenshots.</p>
-        <p>The docs are organized so you can decide quickly where to start: tutorials if you want worked examples, API if you want the public interface, design if you want the architecture, and the repository if you want the implementation.</p>
-        <div class="badges">
-          <div class="badge"><strong>Tutorials</strong><span>5 topic-focused case studies</span></div>
-          <div class="badge"><strong>API</strong><span>public package surface</span></div>
-          <div class="badge"><strong>Artifacts</strong><span>labels, maps, PCA tables</span></div>
+        <p><strong>litmap</strong> is a Python package for reproducible literature mapping. It is designed around explicit runs, inspectable artifacts, and a clean separation between clustering space and plotting space.</p>
+        <p class="muted">If you are new here, start with a tutorial. If you are evaluating the package itself, read the design notes and public API. If you only need the architecture, the pipeline diagram below is the shortest overview.</p>
+        <div class="button-row">
+          <a class="button primary" href="tutorials/index.html">Browse tutorials</a>
+          <a class="button" href="getting-started.md">Getting started</a>
+          <a class="button" href="api.md">API surface</a>
+          <a class="button" href="https://github.com/dai540/litmap">GitHub</a>
+        </div>
+        <div class="summary">
+          <div class="stat"><strong>5 tutorials</strong><span>Case studies with maps, tables, and interpretation.</span></div>
+          <div class="stat"><strong>Run artifacts</strong><span>Labels, summaries, coordinates, and interactive HTML.</span></div>
+          <div class="stat"><strong>Two spaces</strong><span>Cluster in analysis space, display in a separate 2D view.</span></div>
         </div>
       </section>
 
-      <aside class="panel quick-nav">
-        <h2>Contents</h2>
+      <aside class="panel">
+        <div class="eyebrow">Site map</div>
+        <h2>Where to go next</h2>
         <ul class="nav-list">
-          <li><a href="tutorials/index.html">Tutorials</a><div class="small">Long-form case-study articles with result artifacts.</div></li>
-          <li><a href="getting-started.md">Getting started</a><div class="small">Installation, commands, and package layout.</div></li>
-          <li><a href="api.md">API surface</a><div class="small">Public functions, config loading, and execution entry points.</div></li>
-          <li><a href="design.md">Design notes</a><div class="small">Run semantics, artifact layout, and separation of spaces.</div></li>
-          <li><a href="https://github.com/dai540/litmap">GitHub repository</a><div class="small">Implementation, issues, and source browsing.</div></li>
+          <li><a href="tutorials/index.html">Tutorials</a><div class="muted">Worked examples for immunotherapy, ADC, PROTAC, breast cancer, and lung cancer.</div></li>
+          <li><a href="getting-started.md">Getting started</a><div class="muted">Install the package, inspect the CLI, and understand the run directory.</div></li>
+          <li><a href="design.md">Design notes</a><div class="muted">Why the package separates corpus prep, analysis space, and display space.</div></li>
+          <li><a href="api.md">API surface</a><div class="muted">The public Python entry points that package users should rely on.</div></li>
+          <li><a href="https://dai540.github.io/litmap/">Published docs</a><div class="muted">Static HTML site served from GitHub Pages.</div></li>
         </ul>
       </aside>
     </section>
 
-    <section class="map-grid">
-      <section class="panel section">
-        <span class="kicker">Pipeline</span>
-        <h2>How one run is structured</h2>
-        <p>The package uses a fixed conceptual flow: define a corpus, prepare paper text, build embeddings, cluster in analysis space, and project into a separate 2D display space. The split between analysis space and display space is the main thing to understand before reading the tutorials.</p>
-        <img class="flow-figure" src="assets/pipeline-overview.svg" alt="litmap pipeline overview">
+    <section class="grid">
+      <section class="panel">
+        <div class="eyebrow">Architecture</div>
+        <h2>Pipeline at a glance</h2>
+        <p class="muted">A run starts with a corpus definition, creates a canonical paper table, builds embeddings, decides cluster structure in analysis space, and only then creates a 2D display layer for the map.</p>
+        <img class="figure" src="assets/pipeline-overview.svg" alt="litmap pipeline overview">
       </section>
 
-      <section class="panel section">
-        <span class="kicker">Start here</span>
-        <h2>Recommended reading order</h2>
-        <ol>
-          <li><strong>Tutorials</strong>: start with one domain article if you want to see outputs first.</li>
-          <li><strong>Getting started</strong>: then see how the package is installed and invoked.</li>
-          <li><strong>Design notes</strong>: read this if you want to understand why clustering and plotting are separated.</li>
-          <li><strong>API surface</strong>: use this when writing code against `litmap` directly.</li>
-        </ol>
+      <section class="panel">
+        <div class="eyebrow">Quick start</div>
+        <h2>Minimal local workflow</h2>
         <pre>pip install -e .[docs]
 mkdocs serve
-mkdocs build</pre>
+litmap init-config --output configs/my-run.yaml
+litmap show-plan --config configs/default.yaml</pre>
       </section>
     </section>
 
-    <section class="section-grid">
-      <section class="panel section">
-        <span class="kicker">Tutorials</span>
+    <section class="grid">
+      <section class="panel">
+        <div class="eyebrow">Tutorials</div>
         <h2>Case-study articles</h2>
-        <div class="card-grid">
-          <article class="card"><h3><a href="tutorials/cancer-immunotherapy.html">Cancer Immunotherapy</a></h3><p>Density-based map of biomarkers, microenvironment, combinations, and toxicity.</p></article>
-          <article class="card"><h3><a href="tutorials/adc-landscape.html">Antibody-Drug Conjugates</a></h3><p>Target biology, linker-payload chemistry, resistance, and safety translation.</p></article>
-          <article class="card"><h3><a href="tutorials/protac-landscape.html">PROTAC</a></h3><p>Degrader chemistry, ligase biology, ternary-complex logic, and PK translation.</p></article>
-          <article class="card"><h3><a href="tutorials/breast-cancer.html">Breast Cancer</a></h3><p>HER2 programs, endocrine resistance, TNBC immunotherapy, and MRD monitoring.</p></article>
-          <article class="card"><h3><a href="tutorials/lung-cancer.html">Lung Cancer</a></h3><p>Targeted resistance, KRAS strategy, immunotherapy biomarkers, and ctDNA monitoring.</p></article>
+        <div class="cards">
+          <article class="card"><h3><a href="tutorials/cancer-immunotherapy.html">Cancer Immunotherapy</a></h3><p>Biomarkers, tumor microenvironment, combinations, and toxicity structure.</p></article>
+          <article class="card"><h3><a href="tutorials/adc-landscape.html">Antibody-Drug Conjugates</a></h3><p>Target biology, linker-payload chemistry, safety translation, and resistance.</p></article>
+          <article class="card"><h3><a href="tutorials/protac-landscape.html">PROTAC</a></h3><p>Degrader chemistry, ligase biology, ternary-complex logic, and PK questions.</p></article>
+          <article class="card"><h3><a href="tutorials/breast-cancer.html">Breast Cancer</a></h3><p>HER2 programs, endocrine resistance, MRD monitoring, and TNBC immunotherapy.</p></article>
+          <article class="card"><h3><a href="tutorials/lung-cancer.html">Lung Cancer</a></h3><p>Targeted resistance, KRAS strategy, biomarker logic, and ctDNA monitoring.</p></article>
         </div>
       </section>
 
-      <section class="panel section">
-        <span class="kicker">Package docs</span>
-        <h2>Main documentation pages</h2>
-        <ul class="link-list">
-          <li><a href="getting-started.md">Getting started</a><div class="small">Install, invoke the CLI, and inspect the run layout.</div></li>
-          <li><a href="design.md">Design notes</a><div class="small">Architecture principles, run semantics, and artifact boundaries.</div></li>
-          <li><a href="api.md">API surface</a><div class="small">Public Python entry points and what is considered stable.</div></li>
-          <li><a href="tutorials/index.html">Tutorial index</a><div class="small">Gateway page for all long-form worked examples.</div></li>
-        </ul>
-      </section>
-    </section>
-
-    <section class="section-grid">
-      <section class="panel section">
-        <span class="kicker">Artifacts</span>
-        <h2>Outputs you should expect</h2>
-        <ul class="link-list">
-          <li><code>labels.csv</code><div class="small">Paper-level cluster labels and membership probabilities.</div></li>
-          <li><code>cluster_summary.csv</code><div class="small">Cluster sizes, persistence, and representative papers.</div></li>
-          <li><code>coords_2d.csv</code><div class="small">Display-space coordinates used for plotting.</div></li>
-          <li><code>map_interactive.html</code><div class="small">Interactive Plotly map with hover details.</div></li>
-        </ul>
-      </section>
-
-      <section class="panel section">
-        <span class="kicker">Project</span>
-        <h2>Repository and docs</h2>
-        <ul class="link-list">
-          <li><a href="https://github.com/dai540/litmap">GitHub repository</a><div class="small">Source code, issue tracking, and development history.</div></li>
-          <li><a href="https://dai540.github.io/litmap/">Published docs</a><div class="small">GitHub Pages entry point for the HTML docs.</div></li>
-          <li><a href="index.md">Markdown source</a><div class="small">Source page used by the static documentation build.</div></li>
+      <section class="panel">
+        <div class="eyebrow">Reference</div>
+        <h2>Core package pages</h2>
+        <ul class="clean-list">
+          <li><a href="getting-started.md">Getting started</a><div class="muted">Installation, commands, and run layout.</div></li>
+          <li><a href="design.md">Design notes</a><div class="muted">Architecture principles and artifact boundaries.</div></li>
+          <li><a href="api.md">API surface</a><div class="muted">Public functions and config loading.</div></li>
+          <li><a href="tutorials/index.html">Tutorial index</a><div class="muted">Hub page for all HTML case-study articles.</div></li>
         </ul>
       </section>
     </section>

@@ -1,17 +1,17 @@
 # litmap
 
 <p align="center">
-  <img src="docs/assets/litmap-icon.svg" alt="litmap icon" width="120">
+  <img src="docs/assets/litmap-icon.svg" alt="litmap icon" width="72">
+</p>
+
+<p align="center">
+  <a href="https://github.com/dai540/litmap">Repository</a> ·
+  <a href="https://dai540.github.io/litmap/">Docs</a>
 </p>
 
 `litmap` is a Python package for reproducible literature mapping.
 It is meant for workflows where you need more than a notebook screenshot: you
 need a map, a label table, a cluster summary, and a traceable run directory.
-
-Project site:
-
-- Repository: [github.com/dai540/litmap](https://github.com/dai540/litmap)
-- Docs and tutorials: [dai540.github.io/litmap](https://dai540.github.io/litmap/)
 
 The package treats literature mapping as a sequence of explicit stages:
 

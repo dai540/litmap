@@ -1,0 +1,13 @@
+{
+  "slug": "translational-biomarker-stratification",
+  "title": "Translational Biomarker Stratification",
+  "record_count": 12,
+  "analysis_backend": "deterministic_tfidf_pca_kmeans",
+  "generated_from": "docs\\tutorial-data\\translational-biomarker-stratification.csv",
+  "cluster_themes": {
+    "0": "assay, enrollment, companion",
+    "1": "exclusion, immune, spatial",
+    "2": "adjuvant, development, disease",
+    "3": "biomarker, subgroup, adaptive"
+  }
+}

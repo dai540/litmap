@@ -1,0 +1,9 @@
+{
+  "slug": "breast-cancer",
+  "title": "Breast Cancer",
+  "record_count": 3000,
+  "analysis_backend": "tfidf_l2_pca_hdbscan_pca_plotly",
+  "cluster_count_non_noise": 20,
+  "noise_count": 10,
+  "generated_from": "docs\\tutorial-data\\breast-cancer.csv"
+}

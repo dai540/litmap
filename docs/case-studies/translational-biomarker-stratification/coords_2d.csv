@@ -1,0 +1,13 @@
+record_id,x,y,cluster
+biomarker-001,0.5163,-0.0459,0
+biomarker-002,0.0840,-0.5931,0
+biomarker-003,-0.0369,-0.5353,3
+biomarker-004,0.3321,0.1227,1
+biomarker-005,0.0558,0.1713,1
+biomarker-006,-0.2181,0.2166,0
+biomarker-007,0.3656,-0.1525,2
+biomarker-008,-0.0056,0.3649,3
+biomarker-009,0.1503,0.4210,0
+biomarker-010,-0.5470,-0.0229,3
+biomarker-011,-0.5884,-0.0608,3
+biomarker-012,-0.1081,0.1140,3

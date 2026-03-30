@@ -1,0 +1,13 @@
+record_id,source_id,title,year,cluster,probability,is_noise,theme
+openalex-001,openalex-001,Perturbation screens for single-cell causal inference,2024,0,0.829,false,"perturbation, immune, signaling"
+openalex-002,openalex-002,Design principles for CRISPR perturb-seq experiments,2023,2,0.781,false,"lineage, perturb seq, recording"
+openalex-003,openalex-003,Single-cell perturbation atlases in immune signaling,2024,0,0.832,false,"perturbation, immune, signaling"
+openalex-004,openalex-004,Benchmarking multimodal integration in single-cell atlases,2024,1,0.837,false,"integration, batch, annotation"
+openalex-005,openalex-005,Evaluation framework for atlas integration and annotation,2023,1,0.832,false,"integration, batch, annotation"
+openalex-006,openalex-006,Reference mapping under batch effects in cell atlases,2022,1,0.851,false,"integration, batch, annotation"
+openalex-007,openalex-007,Lineage tracing under pooled perturbations,2022,2,0.835,false,"lineage, perturb seq, recording"
+openalex-008,openalex-008,Trajectory aware models for perturbation design,2023,0,0.828,false,"perturbation, immune, signaling"
+openalex-009,openalex-009,Barcoded lineage recording in regenerative systems,2024,2,0.820,false,"lineage, perturb seq, recording"
+openalex-010,openalex-010,Data portal editorial for single-cell resources,2021,3,0.849,false,"portals, repository, editorial"
+openalex-011,openalex-011,Visualization notes for atlas portals,2022,3,0.790,false,"portals, repository, editorial"
+openalex-012,openalex-012,Repository update for public single-cell benchmarks,2023,3,0.820,false,"portals, repository, editorial"

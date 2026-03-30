@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420" role="img" aria-label="Antibody-Drug Conjugates scree plot">
+  <rect width="760" height="420" rx="24" fill="#fbf8f1"/>
+  <rect x="40" y="36" width="680" height="320" rx="22" fill="#ffffff" stroke="#d9ddd8"/>
+  <line x1="84" y1="320" x2="680" y2="320" stroke="#cfd6d2"/>
+  <line x1="84" y1="88" x2="84" y2="320" stroke="#cfd6d2"/>
+  <text x="382" y="384" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#5c6973">Principal components</text>
+  <text x="34" y="204" transform="rotate(-90 34 204)" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#5c6973">Explained variance ratio</text>
+  <rect x="90" y="100.0" width="64" height="220.0" rx="8" fill="#116e5f" opacity="0.82"/><text x="122" y="346" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#55616b">PC1</text><text x="122" y="92.0" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#55616b">27.0%</text><rect x="210" y="103.2" width="64" height="216.8" rx="8" fill="#116e5f" opacity="0.82"/><text x="242" y="346" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#55616b">PC2</text><text x="242" y="95.2" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#55616b">26.6%</text><rect x="330" y="117.1" width="64" height="202.9" rx="8" fill="#116e5f" opacity="0.82"/><text x="362" y="346" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#55616b">PC3</text><text x="362" y="109.1" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#55616b">24.9%</text><rect x="450" y="143.4" width="64" height="176.6" rx="8" fill="#116e5f" opacity="0.82"/><text x="482" y="346" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#55616b">PC4</text><text x="482" y="135.4" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#55616b">21.6%</text>
+  <text x="40" y="26" font-family="Georgia, serif" font-size="24" fill="#172029">Antibody-Drug Conjugates PCA summary</text>
+</svg>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Target Discovery Omics | litmap</title>
+  <style>
+    :root { --bg: #f4efe6; --panel: rgba(255, 251, 245, 0.9); --ink: #172029; --accent: #0f6c5c; --line: rgba(23, 32, 41, 0.12); --muted: #58636d; }
+    body { margin: 0; font-family: "Palatino Linotype", Georgia, serif; color: var(--ink); background: linear-gradient(180deg, #efe7d9 0%, #f5f7f2 100%); }
+    main { max-width: 1020px; margin: 0 auto; padding: 42px 24px 72px; }
+    .hero, .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 18px 48px rgba(23, 32, 41, 0.08); }
+    .hero { padding: 36px; margin-bottom: 22px; }
+    .panel { padding: 24px; margin-bottom: 22px; }
+    h1, h2 { margin-top: 0; }
+    p, li { line-height: 1.68; }
+    a { color: var(--accent); }
+    img { width: 100%; border-radius: 16px; border: 1px solid #dde2dd; }
+    pre, code { font-family: Consolas, "Courier New", monospace; }
+    pre { overflow-x: auto; padding: 16px; border-radius: 14px; background: #1c252d; color: #f9f5ee; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #e5e7e3; vertical-align: top; }
+    .muted { color: var(--muted); }
+    .linkrow { display: flex; flex-wrap: wrap; gap: 14px; }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <p class="muted">Tutorial article</p>
+      <h1>Target Discovery Omics</h1>
+      <p>This article documents a real generated tutorial run from the bundled corpus in <code>docs/tutorial-data/target-discovery-omics.csv</code>.</p>
+      <div class="linkrow">
+        <a href="index.html">All tutorials</a>
+        <a href="../case-studies/target-discovery-omics/map_interactive.html">Open HTML artifact</a>
+        <a href="target-discovery-omics.md">Open Markdown source</a>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>Background</h2>
+      <p>Target discovery portfolios mix functional evidence, tissue context, tractability, and human-genetics support. A useful literature map should separate those evidence modes instead of flattening them into a single "target discovery" bucket.</p>
+    </section>
+    <section class="panel">
+      <h2>Purpose</h2>
+      <p>The goal is to organize a small discovery corpus into interpretable clusters that mirror how target nomination is discussed in practice.</p>
+    </section>
+    <section class="panel">
+      <h2>Data used</h2>
+      <p>Source file: <a href="../tutorial-data/target-discovery-omics.csv">target-discovery-omics.csv</a>. The corpus contains 12 records spanning CRISPR screens, target-expression mapping, chemoproteomics, and genetics evidence.</p>
+      <table>
+        <thead><tr><th>Record</th><th>Title</th><th>Year</th></tr></thead>
+        <tbody>
+          <tr><td>target-001</td><td>CRISPR dependency maps reveal kinase vulnerabilities</td><td>2024</td></tr>
+          <tr><td>target-004</td><td>Spatial proteomics for target expression context</td><td>2024</td></tr>
+          <tr><td>target-007</td><td>Chemoproteomics for ligandability assessment in target triage</td><td>2022</td></tr>
+          <tr><td>target-010</td><td>Human genetics evidence boosts target success probability</td><td>2021</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="panel">
+      <h2>Code used</h2>
+      <pre>records = load_records(DATA_DIR / "target-discovery-omics.csv")
+vocab, vectors, _ = build_tfidf(records)
+centered, _ = center_vectors(vectors)
+coords = project(centered, top_components(centered, 2))
+labels, centroids = kmeans(vectors, 4)</pre>
+    </section>
+    <section class="panel">
+      <h2>Result figure</h2>
+      <img src="../assets/target-discovery-omics.svg" alt="Target discovery omics figure">
+    </section>
+    <section class="panel">
+      <h2>Results</h2>
+      <table>
+        <thead><tr><th>Cluster</th><th>Theme</th><th>Size</th><th>Mean probability</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>crispr, dependency, kinase</td><td>1</td><td>1.00</td></tr>
+          <tr><td>1</td><td>expression, target, proteomics</td><td>4</td><td>0.78</td></tr>
+          <tr><td>2</td><td>target, assessment, chemoproteomics</td><td>4</td><td>0.76</td></tr>
+          <tr><td>3</td><td>evidence, nomination, human</td><td>3</td><td>0.81</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="panel">
+      <h2>Generated artifacts</h2>
+      <ul>
+        <li><a href="../case-studies/target-discovery-omics/labels.csv">labels.csv</a></li>
+        <li><a href="../case-studies/target-discovery-omics/cluster_summary.csv">cluster_summary.csv</a></li>
+        <li><a href="../case-studies/target-discovery-omics/coords_2d.csv">coords_2d.csv</a></li>
+        <li><a href="../case-studies/target-discovery-omics/map_interactive.html">map_interactive.html</a></li>
+        <li><a href="../case-studies/target-discovery-omics/analysis_manifest.json">analysis_manifest.json</a></li>
+      </ul>
+    </section>
+    <section class="panel">
+      <h2>Interpretation</h2>
+      <p>The resulting map is especially useful for discovery teams because it separates target nomination by evidence type. That helps distinguish "biology says this matters" from "chemistry says this is tractable" and from "human genetics makes this de-risked".</p>
+    </section>
+  </main>
+</body>
+</html>

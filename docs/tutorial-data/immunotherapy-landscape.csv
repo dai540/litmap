@@ -1,0 +1,13 @@
+record_id,title,abstract,year
+immuno-001,Immune checkpoint biomarkers in solid tumors,Review of PD-1 and PD-L1 biomarkers across solid tumors with emphasis on immunotherapy response prediction and resistance mechanisms.,2023
+immuno-002,T cell exhaustion signatures in melanoma,Transcriptomic study of exhausted T cell programs in melanoma during checkpoint blockade and biomarker discovery.,2022
+immuno-003,Interferon gamma response as a checkpoint response marker,Analysis of interferon gamma related expression programs as predictors of response to anti PD-1 therapy.,2024
+immuno-004,Spatial transcriptomics for tumor microenvironment profiling,Spatial transcriptomics reveals immune niches macrophage barriers and tissue architecture linked to immunotherapy outcome.,2024
+immuno-005,Single-cell atlases of response to anti PD-1 therapy,Single-cell atlas of tumor microenvironment remodeling during anti PD-1 treatment with focus on lymphocyte states.,2023
+immuno-006,Multiplex imaging of immune niches under checkpoint blockade,Multiplex imaging study of immune niches fibroblasts and macrophages in tumors treated with checkpoint blockade.,2022
+immuno-007,Neoantigen selection strategies for vaccine design,Methods paper on neoantigen ranking epitope prioritization and personalized cancer vaccine design.,2021
+immuno-008,Personalized peptide vaccines after tumor sequencing,Clinical translation of personalized peptide vaccine workflows driven by tumor sequencing and epitope screening.,2020
+immuno-009,Mutational burden and neoepitope quality in vaccine trials,Study of mutational burden neoepitope quality and vaccine immunogenicity in translational trials.,2023
+immuno-010,Case report of rare toxicity under combined blockade,Case report describing rare myocarditis and safety management under combined immune checkpoint blockade.,2020
+immuno-011,Steroid management for immune related adverse events,Practical review of immune related adverse event management toxicity grading and steroid tapering.,2021
+immuno-012,Pathology workflow for checkpoint induced colitis,Clinicopathologic report on checkpoint induced colitis endoscopy pathology findings and treatment escalation.,2022

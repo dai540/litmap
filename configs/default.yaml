@@ -1,0 +1,65 @@
+project:
+  name: "demo-run"
+  run_dir: "./runs"
+
+source:
+  type: "csv"
+  params:
+    path: "./data/papers.csv"
+    id_column: "id"
+    title_column: "title"
+    abstract_column: "abstract"
+    year_column: "year"
+
+corpus:
+  text_fields: ["title", "abstract"]
+  text_separator: " [SEP] "
+  require_title: true
+  require_abstract: false
+  deduplicate:
+    enabled: true
+    strategy: "doi_or_title_year"
+
+embedding:
+  provider: "specter2"
+  model_name: "allenai/specter2_base"
+  adapter_name: "allenai/specter2"
+  batch_size: 16
+  truncation: true
+  device: "auto"
+
+analysis:
+  normalize:
+    method: "l2"
+    axis: 1
+  pca_cluster:
+    n_components: 50
+    svd_solver: "full"
+  hdbscan:
+    min_cluster_size: "auto"
+    min_cluster_size_floor: 15
+    min_cluster_size_ratio: 0.01
+    min_samples: null
+    metric: "euclidean"
+    cluster_selection_method: "eom"
+    prediction_data: true
+  pca_plot:
+    n_components: 2
+    svd_solver: "full"
+
+visualization:
+  backend: "plotly"
+  color_noise: "#BDBDBD"
+  opacity: 0.7
+  hover_fields: ["title", "record_id", "year", "cluster", "probability"]
+  output_html: "map_interactive.html"
+
+output:
+  save_intermediate: true
+  save_manifest: true
+  save_environment: true
+
+runtime:
+  random_seed: 42
+  log_level: "INFO"
+  resume: true

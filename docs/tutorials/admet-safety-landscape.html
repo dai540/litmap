@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ADMET and Safety Landscape | litmap</title>
+  <style>
+    :root { --bg: #f4efe6; --panel: rgba(255, 251, 245, 0.9); --ink: #172029; --accent: #0f6c5c; --line: rgba(23, 32, 41, 0.12); --muted: #58636d; }
+    body { margin: 0; font-family: "Palatino Linotype", Georgia, serif; color: var(--ink); background: linear-gradient(180deg, #efe7d9 0%, #f5f7f2 100%); }
+    main { max-width: 1020px; margin: 0 auto; padding: 42px 24px 72px; }
+    .hero, .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 18px 48px rgba(23, 32, 41, 0.08); }
+    .hero { padding: 36px; margin-bottom: 22px; }
+    .panel { padding: 24px; margin-bottom: 22px; }
+    h1, h2 { margin-top: 0; }
+    p, li { line-height: 1.68; }
+    a { color: var(--accent); }
+    img { width: 100%; border-radius: 16px; border: 1px solid #dde2dd; }
+    pre, code { font-family: Consolas, "Courier New", monospace; }
+    pre { overflow-x: auto; padding: 16px; border-radius: 14px; background: #1c252d; color: #f9f5ee; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #e5e7e3; vertical-align: top; }
+    .muted { color: var(--muted); }
+    .linkrow { display: flex; flex-wrap: wrap; gap: 14px; }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <p class="muted">Tutorial article</p>
+      <h1>ADMET and Safety Landscape</h1>
+      <p>This article documents a real generated tutorial run from the bundled corpus in <code>docs/tutorial-data/admet-safety-landscape.csv</code>.</p>
+      <div class="linkrow">
+        <a href="index.html">All tutorials</a>
+        <a href="../case-studies/admet-safety-landscape/map_interactive.html">Open HTML artifact</a>
+        <a href="admet-safety-landscape.md">Open Markdown source</a>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>Background</h2>
+      <p>In medicinal chemistry and preclinical support, ADMET and safety discussions are rarely one-dimensional. Teams need to distinguish clearance and exposure optimization from cardiac risk, toxicology alerts, and CNS design constraints.</p>
+    </section>
+    <section class="panel">
+      <h2>Purpose</h2>
+      <p>The goal is to verify that a small discovery-safety corpus can still be mapped into coherent regions that resemble real development conversations.</p>
+    </section>
+    <section class="panel">
+      <h2>Data used</h2>
+      <p>Source file: <a href="../tutorial-data/admet-safety-landscape.csv">admet-safety-landscape.csv</a>. The corpus contains 12 records across PK, cardiac safety, reactive metabolite screening, and CNS exposure.</p>
+      <table>
+        <thead><tr><th>Record</th><th>Title</th><th>Year</th></tr></thead>
+        <tbody>
+          <tr><td>admet-001</td><td>Microsomal stability workflows for lead optimization</td><td>2022</td></tr>
+          <tr><td>admet-004</td><td>In vitro hERG triage with patch clamp confirmation</td><td>2021</td></tr>
+          <tr><td>admet-007</td><td>Reactive metabolite screening in discovery safety</td><td>2022</td></tr>
+          <tr><td>admet-010</td><td>Brain penetration design rules for CNS projects</td><td>2021</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="panel">
+      <h2>Code used</h2>
+      <pre>records = load_records(DATA_DIR / "admet-safety-landscape.csv")
+vocab, vectors, _ = build_tfidf(records)
+centered, _ = center_vectors(vectors)
+coords = project(centered, top_components(centered, 2))
+labels, centroids = kmeans(vectors, 4)</pre>
+    </section>
+    <section class="panel">
+      <h2>Result figure</h2>
+      <img src="../assets/admet-safety-landscape.svg" alt="ADMET and safety landscape figure">
+    </section>
+    <section class="panel">
+      <h2>Results</h2>
+      <table>
+        <thead><tr><th>Cluster</th><th>Theme</th><th>Size</th><th>Mean probability</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>lead, optimization, clearance</td><td>3</td><td>0.83</td></tr>
+          <tr><td>1</td><td>triage, safety, cardiac</td><td>3</td><td>0.82</td></tr>
+          <tr><td>2</td><td>screening, risk, metabolite</td><td>3</td><td>0.81</td></tr>
+          <tr><td>3</td><td>brain, unbound, cns</td><td>3</td><td>0.81</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="panel">
+      <h2>Generated artifacts</h2>
+      <ul>
+        <li><a href="../case-studies/admet-safety-landscape/labels.csv">labels.csv</a></li>
+        <li><a href="../case-studies/admet-safety-landscape/cluster_summary.csv">cluster_summary.csv</a></li>
+        <li><a href="../case-studies/admet-safety-landscape/coords_2d.csv">coords_2d.csv</a></li>
+        <li><a href="../case-studies/admet-safety-landscape/map_interactive.html">map_interactive.html</a></li>
+        <li><a href="../case-studies/admet-safety-landscape/analysis_manifest.json">analysis_manifest.json</a></li>
+      </ul>
+    </section>
+    <section class="panel">
+      <h2>Interpretation</h2>
+      <p>This scenario is useful because it shows a map aligned with medicinal chemistry decision-making. Exposure optimization, cardiac safety, broader toxicology, and CNS delivery all remain visible as separate neighborhoods rather than being collapsed into a generic ADMET bucket.</p>
+    </section>
+  </main>
+</body>
+</html>

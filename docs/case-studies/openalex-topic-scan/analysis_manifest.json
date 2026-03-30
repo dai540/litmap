@@ -1,0 +1,13 @@
+{
+  "slug": "openalex-topic-scan",
+  "title": "OpenAlex Topic Scan",
+  "record_count": 12,
+  "analysis_backend": "deterministic_tfidf_pca_kmeans",
+  "generated_from": "docs\\tutorial-data\\openalex-topic-scan.csv",
+  "cluster_themes": {
+    "0": "perturbation, immune, signaling",
+    "1": "integration, batch, annotation",
+    "2": "lineage, perturb seq, recording",
+    "3": "portals, repository, editorial"
+  }
+}

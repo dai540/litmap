@@ -1,0 +1,13 @@
+{
+  "slug": "immunotherapy-landscape",
+  "title": "Immunotherapy Landscape",
+  "record_count": 12,
+  "analysis_backend": "deterministic_tfidf_pca_kmeans",
+  "generated_from": "docs\\tutorial-data\\immunotherapy-landscape.csv",
+  "cluster_themes": {
+    "0": "pd 1, anti, checkpoint",
+    "1": "spatial, transcriptomics, architecture",
+    "2": "vaccine, personalized, neoantigen",
+    "3": "blockade, immune, management"
+  }
+}

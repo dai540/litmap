@@ -1,0 +1,5 @@
+cluster_id,theme,size,mean_probability,representative_papers
+0,"assay, enrollment, companion",4,0.754,Companion diagnostic strategy for targeted oncology programs | Assay bridging for biomarker driven trial enrollment
+1,"exclusion, immune, spatial",2,0.861,Single-cell biomarkers of resistance under targeted therapy | Spatial biomarkers of immune exclusion in solid tumors
+2,"adjuvant, development, disease",1,1.000,Minimal residual disease assays for adjuvant development
+3,"biomarker, subgroup, adaptive",5,0.751,Bayesian subgroup borrowing for biomarker stratified studies | Adaptive randomization with biomarker subgroup monitoring

@@ -1,0 +1,13 @@
+record_id,title,abstract,year
+openalex-001,Perturbation screens for single-cell causal inference,Overview of perturbation screens and single-cell causal inference workflows using pooled CRISPR readouts.,2024
+openalex-002,Design principles for CRISPR perturb-seq experiments,Methods article on perturb-seq library design guide selection and experimental replication.,2023
+openalex-003,Single-cell perturbation atlases in immune signaling,Atlas study of perturbation induced transcriptional responses in immune signaling pathways.,2024
+openalex-004,Benchmarking multimodal integration in single-cell atlases,Benchmark paper comparing integration methods multimodal alignment and batch correction across atlases.,2024
+openalex-005,Evaluation framework for atlas integration and annotation,Framework for method benchmarking annotation transfer and dataset harmonization in atlas projects.,2023
+openalex-006,Reference mapping under batch effects in cell atlases,Study of reference mapping batch correction and transfer learning for cell atlas annotation.,2022
+openalex-007,Lineage tracing under pooled perturbations,Experimental design for lineage tracing with pooled perturbations and temporal barcode analysis.,2022
+openalex-008,Trajectory aware models for perturbation design,Modeling paper on developmental trajectories perturbation timing and intervention design.,2023
+openalex-009,Barcoded lineage recording in regenerative systems,Lineage recording study with barcodes regeneration trajectories and perturbation linked outcomes.,2024
+openalex-010,Data portal editorial for single-cell resources,Editorial on community data portals metadata standards and repository interfaces for single-cell resources.,2021
+openalex-011,Visualization notes for atlas portals,Perspective piece on dashboards figure design and navigation in atlas data portals.,2022
+openalex-012,Repository update for public single-cell benchmarks,Update article on benchmark repository maintenance challenge datasets and shared metadata.,2023

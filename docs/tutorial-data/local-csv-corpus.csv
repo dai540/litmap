@@ -1,0 +1,13 @@
+record_id,title,abstract,year
+local-001,Methods for causal mediation in translational studies,Methodological review of causal mediation analysis with biomarker pathways treatment effects and sensitivity checks.,2022
+local-002,Sensitivity analysis in biomarker guided trials,Paper on unmeasured confounding sensitivity analysis and biomarker guided treatment strategies.,2021
+local-003,Transportability of surrogate endpoints across cohorts,Study of transportability surrogate endpoints and causal identification across trial and registry cohorts.,2023
+local-004,Survey of adaptive enrichment designs,Survey of adaptive enrichment subgroup selection and interim decision rules in precision trials.,2023
+local-005,Bayesian monitoring for adaptive platform oncology trials,Bayesian platform trial monitoring with adaptive borrowing cohort graduation and decision thresholds.,2022
+local-006,Sample size planning for biomarker enrichment,Design article on sample size allocation biomarker prevalence and enrichment strategies.,2021
+local-007,Target trial emulation for oncology registries,Application of target trial emulation to oncology registries with eligibility assignment and follow-up alignment.,2024
+local-008,Clone censor weight methods for registry comparisons,Method paper on clone censor weight estimation for observational treatment comparisons in registries.,2023
+local-009,Time zero alignment in emulated oncology trials,Study of time zero alignment immortal time bias and protocol emulation in cancer registry analyses.,2022
+local-010,Reporting checklist for causal analyses in registries,Reporting guidance for causal diagrams assumptions diagnostics and transparent estimands in registry studies.,2024
+local-011,Outcome adjudication in pragmatic oncology cohorts,Pragmatic cohort methods for outcome adjudication endpoint harmonization and registry abstraction.,2021
+local-012,Negative control strategies in comparative effectiveness studies,Practical negative control strategy paper for comparative effectiveness analyses and registry validation.,2023

@@ -1,0 +1,5 @@
+cluster_id,theme,size,mean_probability,representative_papers
+0,"sensitivity, biomarker, mediation",2,0.899,Methods for causal mediation in translational studies | Sensitivity analysis in biomarker guided trials
+1,"enrichment, adaptive, survey",3,0.825,Survey of adaptive enrichment designs | Bayesian monitoring for adaptive platform oncology trials
+2,"oncology, time, emulation",4,0.774,Target trial emulation for oncology registries | Time zero alignment in emulated oncology trials
+3,"causal, endpoints, surrogate",3,0.808,Reporting checklist for causal analyses in registries | Transportability of surrogate endpoints across cohorts

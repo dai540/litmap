@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "litmap"
+version = "0.1.0"
+description = "Reproducible literature mapping and clustering toolkit."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Daiki"}]
+keywords = ["literature", "clustering", "visualization", "science", "nlp"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Information Analysis",
+]
+dependencies = []
+
+[project.optional-dependencies]
+yaml = ["PyYAML>=6.0"]
+full = [
+  "PyYAML>=6.0",
+  "pandas>=2.2",
+  "numpy>=1.26",
+  "scikit-learn>=1.5",
+  "plotly>=5.24",
+  "hdbscan>=0.8.39",
+  "transformers>=4.46",
+  "torch>=2.4",
+  "biopython>=1.86",
+]
+docs = [
+  "mkdocs>=1.6",
+  "mkdocs-material>=9.5",
+]
+dev = ["pytest>=8.3", "build>=1.2", "twine>=5.1"]
+
+[project.scripts]
+litmap = "litmap.cli.main:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

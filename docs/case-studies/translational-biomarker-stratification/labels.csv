@@ -1,0 +1,13 @@
+record_id,source_id,title,year,cluster,probability,is_noise,theme
+biomarker-001,biomarker-001,Companion diagnostic strategy for targeted oncology programs,2022,0,0.763,false,"assay, enrollment, companion"
+biomarker-002,biomarker-002,Assay bridging for biomarker driven trial enrollment,2023,0,0.763,false,"assay, enrollment, companion"
+biomarker-003,biomarker-003,Analytical validation of multiplex biomarker panels,2024,3,0.727,false,"biomarker, subgroup, adaptive"
+biomarker-004,biomarker-004,Single-cell biomarkers of resistance under targeted therapy,2024,1,0.861,false,"exclusion, immune, spatial"
+biomarker-005,biomarker-005,Spatial biomarkers of immune exclusion in solid tumors,2023,1,0.861,false,"exclusion, immune, spatial"
+biomarker-006,biomarker-006,Circulating tumor DNA monitoring for early pharmacodynamic readouts,2022,0,0.746,false,"assay, enrollment, companion"
+biomarker-007,biomarker-007,Minimal residual disease assays for adjuvant development,2024,2,1.000,false,"adjuvant, development, disease"
+biomarker-008,biomarker-008,Longitudinal liquid biopsy design in translational studies,2023,3,0.713,false,"biomarker, subgroup, adaptive"
+biomarker-009,biomarker-009,Responder enrichment using baseline expression signatures,2021,0,0.746,false,"assay, enrollment, companion"
+biomarker-010,biomarker-010,Bayesian subgroup borrowing for biomarker stratified studies,2024,3,0.804,false,"biomarker, subgroup, adaptive"
+biomarker-011,biomarker-011,Adaptive randomization with biomarker subgroup monitoring,2022,3,0.776,false,"biomarker, subgroup, adaptive"
+biomarker-012,biomarker-012,Clinical utility frameworks for biomarker implementation,2021,3,0.736,false,"biomarker, subgroup, adaptive"

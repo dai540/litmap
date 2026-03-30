@@ -1,0 +1,37 @@
+site_name: litmap
+site_description: Reproducible literature mapping in Python.
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - content.code.copy
+    - content.action.edit
+  palette:
+    - scheme: default
+      primary: teal
+      accent: deep orange
+extra_css:
+  - stylesheets/extra.css
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - tables
+  - toc:
+      permalink: true
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Design: design.md
+  - API Surface: api.md
+  - Tutorials:
+      - Overview: tutorials/index.md
+      - Immunotherapy Landscape: tutorials/immunotherapy-landscape.md
+      - OpenAlex Topic Scan: tutorials/openalex-topic-scan.md
+      - Local CSV Corpus: tutorials/local-csv-corpus.md
+      - Target Discovery Omics: tutorials/target-discovery-omics.md
+      - ADMET and Safety Landscape: tutorials/admet-safety-landscape.md
+      - Translational Biomarker Stratification: tutorials/translational-biomarker-stratification.md

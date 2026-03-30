@@ -1,0 +1,13 @@
+{
+  "slug": "local-csv-corpus",
+  "title": "Local CSV Corpus",
+  "record_count": 12,
+  "analysis_backend": "deterministic_tfidf_pca_kmeans",
+  "generated_from": "docs\\tutorial-data\\local-csv-corpus.csv",
+  "cluster_themes": {
+    "0": "sensitivity, biomarker, mediation",
+    "1": "enrichment, adaptive, survey",
+    "2": "oncology, time, emulation",
+    "3": "causal, endpoints, surrogate"
+  }
+}

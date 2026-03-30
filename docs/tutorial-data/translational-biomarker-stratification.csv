@@ -1,0 +1,13 @@
+record_id,title,abstract,year
+biomarker-001,Companion diagnostic strategy for targeted oncology programs,Overview of companion diagnostic strategy assay co-development and patient selection in targeted oncology.,2022
+biomarker-002,Assay bridging for biomarker driven trial enrollment,Operational paper on assay bridging cutoffs and biomarker driven enrollment decisions across trial sites.,2023
+biomarker-003,Analytical validation of multiplex biomarker panels,Analytical validation study for multiplex biomarker panels precision reproducibility and lot bridging.,2024
+biomarker-004,Single-cell biomarkers of resistance under targeted therapy,Single-cell biomarker discovery for resistance states under targeted therapy and acquired adaptation.,2024
+biomarker-005,Spatial biomarkers of immune exclusion in solid tumors,Spatial biomarker study of immune exclusion architectures and therapeutic response heterogeneity.,2023
+biomarker-006,Circulating tumor DNA monitoring for early pharmacodynamic readouts,Circulating tumor DNA monitoring for early pharmacodynamic response and molecular relapse tracking.,2022
+biomarker-007,Minimal residual disease assays for adjuvant development,Minimal residual disease assay development and application to adjuvant oncology trials.,2024
+biomarker-008,Longitudinal liquid biopsy design in translational studies,Design principles for longitudinal liquid biopsy sampling and translational modeling.,2023
+biomarker-009,Responder enrichment using baseline expression signatures,Expression signature based responder enrichment and threshold calibration in phase two trials.,2021
+biomarker-010,Bayesian subgroup borrowing for biomarker stratified studies,Bayesian subgroup borrowing framework for biomarker stratified studies and adaptive evidence sharing.,2024
+biomarker-011,Adaptive randomization with biomarker subgroup monitoring,Adaptive randomization design with biomarker subgroup monitoring and decision rules.,2022
+biomarker-012,Clinical utility frameworks for biomarker implementation,Framework for clinical utility assessment implementation strategy and evidence generation for biomarkers.,2021

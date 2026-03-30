@@ -1,0 +1,5 @@
+cluster_id,theme,size,mean_probability,representative_papers
+0,"pd 1, anti, checkpoint",4,0.777,Single-cell atlases of response to anti PD-1 therapy | Interferon gamma response as a checkpoint response marker
+1,"spatial, transcriptomics, architecture",1,1.000,Spatial transcriptomics for tumor microenvironment profiling
+2,"vaccine, personalized, neoantigen",3,0.832,Neoantigen selection strategies for vaccine design | Personalized peptide vaccines after tumor sequencing
+3,"blockade, immune, management",4,0.788,Case report of rare toxicity under combined blockade | Multiplex imaging of immune niches under checkpoint blockade

@@ -1,70 +1,69 @@
 # litmap
 
 <p align="center">
-  <img src="docs/assets/litmap-icon.svg" alt="litmap icon" width="64">
+  <img src="docs/assets/litmap-logo.svg" alt="litmap logo" width="420">
 </p>
 
-<p align="center"><strong>Reproducible literature mapping in Python.</strong></p>
+<p align="center">
+  <strong>Reproducible literature mapping in Python</strong>
+</p>
+
+<p align="center">
+  Build a corpus, cluster in analysis space, project into display space, and export review-ready artifacts.
+</p>
 
 <p align="center">
   <a href="https://dai540.github.io/litmap/">Documentation</a> |
   <a href="https://dai540.github.io/litmap/tutorials/index.html">Tutorials</a> |
-  <a href="https://github.com/dai540/litmap">GitHub</a>
+  <a href="docs/api.md">API</a> |
+  <a href="https://github.com/dai540/litmap">Repository</a>
 </p>
 
-`litmap` is a Python package for building literature landscapes that stay readable after the run is over. The package is organized around explicit artifacts: a canonical paper table, embeddings, clustering outputs, 2D coordinates, and an interactive map.
+## Overview
 
-Like the documentation site, this README is meant to answer three questions quickly:
+`litmap` is a Python package for literature landscapes that stay inspectable after the run is over.
+Instead of stopping at a figure, it organizes one run around explicit files:
 
-1. What does the package do?
-2. Where should I start reading?
-3. What files come out of one run?
+- a canonical paper table
+- embeddings and normalized representations
+- cluster assignments and summaries
+- 2D coordinates for display
+- an interactive HTML map
 
-## What litmap does
+The package is built around one design rule:
 
-`litmap` treats one analysis as a simple architecture:
-
-1. define a corpus
-2. normalize paper records
-3. build embeddings
-4. cluster in analysis space
-5. project into a separate 2D display space
-6. export review-ready artifacts
-
-The core design rule is: **cluster in analysis space, plot in display space**.
-
-## Start here
-
-| Page | Why it exists |
-| --- | --- |
-| [Documentation home](https://dai540.github.io/litmap/) | Main entry point with the site map and pipeline overview |
-| [Tutorials](https://dai540.github.io/litmap/tutorials/index.html) | Worked case studies with maps, tables, and interpretation |
-| [Getting started](docs/getting-started.md) | Installation, commands, and run layout |
-| [Design notes](docs/design.md) | Architecture, run semantics, and artifact boundaries |
-| [API surface](docs/api.md) | Stable Python entry points |
+**cluster in analysis space, then plot in a separate display space.**
 
 ## Installation
-
-Editable install:
 
 ```bash
 pip install -e .
 ```
 
-With YAML support:
+With optional extras:
 
 ```bash
 pip install -e .[yaml]
+pip install -e .[docs]
 ```
 
-With docs tooling:
+## Quick start
 
 ```bash
-pip install -e .[docs]
-mkdocs serve
+litmap init-config --output configs/my-run.yaml
+litmap show-plan --config configs/default.yaml
+litmap describe-layout
 ```
 
-## Package shape
+```python
+from litmap import load_config, describe_pipeline, run_pipeline
+
+config = load_config("configs/default.yaml")
+steps = describe_pipeline(config)
+result = run_pipeline(config)
+```
+
+## Run layout
 
 ```text
 runs/
@@ -78,41 +77,27 @@ runs/
     reports/
 ```
 
-Expected outputs include:
+Common outputs:
 
 - `labels.csv`
 - `cluster_summary.csv`
 - `coords_2d.csv`
 - `map_interactive.html`
 
-## Public entry points
+## Documentation
 
-CLI:
+The documentation site is the main entry point.
 
-```bash
-litmap version
-litmap init-config --output configs/my-run.yaml
-litmap describe-layout
-litmap show-plan --config configs/default.yaml
-```
-
-Python:
-
-```python
-from litmap import load_config, describe_pipeline, run_pipeline
-
-config = load_config("configs/default.yaml")
-steps = describe_pipeline(config)
-result = run_pipeline(config)
-```
-
-## Documentation style
-
-The project docs are intentionally closer to a package documentation site than to a notebook dump. The home page is a map of the project, and the tutorial pages are long-form case studies that end in concrete artifacts a review team could inspect.
+- [Docs home](https://dai540.github.io/litmap/)
+- [Tutorial hub](https://dai540.github.io/litmap/tutorials/index.html)
+- [Getting started](docs/getting-started.md)
+- [Design notes](docs/design.md)
+- [API surface](docs/api.md)
 
 ## Development
 
 ```bash
 pytest
 python -m build
+mkdocs serve
 ```

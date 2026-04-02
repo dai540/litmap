@@ -37,8 +37,10 @@ full = [
   "biopython>=1.86",
 ]
 docs = [
-  "mkdocs>=1.6",
-  "mkdocs-material>=9.5",
+  "Sphinx>=8.2",
+  "pydata-sphinx-theme>=0.16",
+  "myst-parser>=4.0",
+  "sphinx-design>=0.6",
 ]
 dev = ["pytest>=8.3", "build>=1.2", "twine>=5.1"]
 

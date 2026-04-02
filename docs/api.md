@@ -1,4 +1,4 @@
-# API Surface
+# API surface
 
 ## Public imports
 
@@ -18,8 +18,7 @@ Return a stable description of the intended pipeline stages and outputs.
 
 ### `run_pipeline(config, run_dir=None)`
 
-Return a structured run description. This is the boundary that future execution
-backends should preserve.
+Return a structured run description. This is the boundary that future execution backends should preserve.
 
 ## Public configuration object
 
@@ -42,5 +41,4 @@ The most natural extension points are:
 - new embedders in `litmap.embed`
 - new exporters in `litmap.visualize`
 
-The package is intentionally conservative about what it exports today so that
-the computational implementation can mature behind a stable outer interface.
+The package is intentionally conservative about what it exports today so that the computational implementation can mature behind a stable outer interface.

@@ -1,27 +1,32 @@
 # Tutorials
 
-The tutorial pages are long-form case studies.
+```{toctree}
+:maxdepth: 1
 
-Each article is meant to be read like a review artifact, not a setup snippet.
-That means every tutorial includes:
+cancer-immunotherapy
+adc-landscape
+protac-landscape
+breast-cancer
+lung-cancer
+```
+
+These pages are written as case studies rather than short setup notes.
+
+Each article starts from a domain question, exposes the structure discovered by the run, and ends with interpretation, reading order, owner assignment, search expansion ideas, and follow-up guidance.
+
+## What each article contains
 
 - a cluster map
-- cluster and paper tables
 - PCA diagnostics
-- interpretation and review guidance
+- theme summaries
+- result tables
+- review-oriented interpretation
 - suggested next actions
 
-Available case studies:
+## Current case studies
 
-- [Cancer Immunotherapy](cancer-immunotherapy.html)
-- [Antibody-Drug Conjugates](adc-landscape.html)
-- [PROTAC](protac-landscape.html)
-- [Breast Cancer](breast-cancer.html)
-- [Lung Cancer](lung-cancer.html)
-
-Related pages:
-
-- [Docs home](../index.md)
-- [Getting started](../getting-started.md)
-- [Design notes](../design.md)
-- [API surface](../api.md)
+- [Cancer Immunotherapy](cancer-immunotherapy.md)
+- [Antibody-Drug Conjugates](adc-landscape.md)
+- [PROTAC](protac-landscape.md)
+- [Breast Cancer](breast-cancer.md)
+- [Lung Cancer](lung-cancer.md)

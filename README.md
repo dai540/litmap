@@ -7,7 +7,7 @@
 ![License](https://img.shields.io/badge/license-MIT-0f172a)
 ![Status](https://img.shields.io/badge/status-alpha-b65a2a)
 
-`litmap` is a Python package for reproducible literature mapping. It is built around explicit run artifacts, a clean separation between analysis space and display space, and documentation that can be read as case-study output rather than only as setup notes.
+`litmap` is a Python package for reproducible literature mapping. It is built around explicit run artifacts, a clean separation between analysis space and display space, and a Sphinx documentation site that is meant to be read as a real package site rather than a notebook dump.
 
 - Read the docs: [https://dai540.github.io/litmap/](https://dai540.github.io/litmap/)
 - Browse tutorials: [Tutorials](docs/tutorials/index.md)
@@ -22,9 +22,19 @@ Install from a local clone:
 pip install -e .[yaml,docs]
 ```
 
-## Get started
+Install the broader analysis stack when needed:
 
-Inspect the basic package workflow:
+```bash
+pip install -e .[full]
+```
+
+## Build the Sphinx docs
+
+```bash
+sphinx-build -b html docs docs/_build/html
+```
+
+## Get started
 
 ```bash
 litmap init-config --output configs/my-run.yaml
@@ -45,8 +55,8 @@ Then inspect:
 
 - what topical neighborhoods emerge in a literature corpus when cluster count is not fixed in advance
 - which papers belong to dense thematic clusters versus ambiguous bridge regions
-- how should one separate clustering logic from the 2D layout used for presentation
-- what review-ready outputs should be saved so the run remains interpretable later
+- how should clustering logic be separated from the 2D layout used for communication
+- what artifacts should be saved so the run remains interpretable later
 
 ## Public API
 
@@ -62,14 +72,15 @@ The project does not promise stability for undocumented internal details.
 
 ## Current highlights
 
-- tutorial-first documentation with HTML case-study articles
+- Sphinx-based package documentation with GitHub Pages deployment
+- tutorial-first case-study articles
 - explicit run layout with `manifest.json` and `config.snapshot.yaml`
 - architecture centered on analysis space versus display space
 - generated result artifacts such as `labels.csv`, `cluster_summary.csv`, and `map_interactive.html`
 
 ## Current limitation
 
-The package surface and documentation are ahead of the final computational backend. `litmap` should currently be understood as a strong package and documentation scaffold with deterministic tutorial pipelines, while the final embedding and clustering backend continues to mature.
+The package surface and documentation are ahead of the final computational backend. `litmap` should currently be understood as a strong package and documentation scaffold with deterministic tutorial pipelines while the final embedding and clustering backend continues to mature.
 
 ## Documentation map
 
@@ -78,10 +89,3 @@ The package surface and documentation are ahead of the final computational backe
 - [Getting started](docs/getting-started.md)
 - [Design](docs/design.md)
 - [API](docs/api.md)
-
-## Project metadata
-
-- `LICENSE`
-- `pyproject.toml`
-- `.github/workflows/pages.yml`
-- `mkdocs.yml`

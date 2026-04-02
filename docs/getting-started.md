@@ -1,68 +1,67 @@
-# Getting Started
+# Getting started
 
-## Installation
+## Install
 
-Minimal editable install:
-
-```bash
-pip install -e .
-```
-
-YAML config support:
+Install from a local clone:
 
 ```bash
-pip install -e .[yaml]
+pip install -e .[yaml,docs]
 ```
 
-Intended analysis stack:
+Install the broader analysis stack when you want the intended scientific dependencies:
 
 ```bash
 pip install -e .[full]
 ```
 
-Documentation stack:
+Build the Sphinx site locally:
 
 ```bash
-pip install -e .[docs]
-mkdocs serve
+sphinx-build -b html docs docs/_build/html
 ```
 
-Rebuild the bundled tutorial outputs:
-
-```bash
-"C:\Program Files\LibreOffice\program\python.exe" scripts/build_case_studies.py
-```
-
-## Command line
+## First commands
 
 ```bash
 litmap version
 litmap init-config --output configs/my-run.yaml
-litmap describe-layout
 litmap show-plan --config configs/default.yaml
+litmap describe-layout
 ```
 
-## Package layout
+## Public Python entry points
+
+```python
+from litmap import LitmapConfig, describe_pipeline, load_config, run_pipeline
+
+config = load_config("configs/default.yaml")
+steps = describe_pipeline(config)
+result = run_pipeline(config)
+```
+
+## Run layout
 
 ```text
-src/litmap/
-  config/
-  domain/
-  sources/
-  corpus/
-  embed/
-  analyze/
-  visualize/
-  storage/
-  pipeline/
-  cli/
+runs/
+  my-topic/
+    manifest.json
+    config.snapshot.yaml
+    raw/
+    corpus/
+    embeddings/
+    analysis/
+    reports/
 ```
 
-## What a polished package experience should provide
+Common outputs include:
 
-- a clear README with installation and scope
-- a static documentation site that goes beyond the README
-- multiple tutorials, not just one quickstart
-- sample outputs that make the final deliverables tangible
-- a repeatable script that regenerates tutorial artifacts from bundled corpora
-- a stable API surface that future implementations can grow behind
+- `labels.csv`
+- `cluster_summary.csv`
+- `coords_2d.csv`
+- `map_interactive.html`
+
+## What to read next
+
+- If you want examples first, go to [Tutorials](tutorials/index.md).
+- If you want the package rationale, go to [Design](design.md).
+- If you want the stable interface, go to [API](api.md).

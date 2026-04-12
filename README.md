@@ -1,91 +1,130 @@
 # litmap
 
-<img src="docs/assets/litmap-icon.svg" alt="litmap icon" width="92" />
+<img src="docs/assets/litmap-logo.svg" alt="litmap logo" width="420" />
 
 [![Docs](https://img.shields.io/badge/docs-github.io-0f6c63)](https://dai540.github.io/litmap/)
 ![Python](https://img.shields.io/badge/python-3.10%2B-3776ab)
 ![License](https://img.shields.io/badge/license-MIT-0f172a)
 ![Status](https://img.shields.io/badge/status-alpha-b65a2a)
 
-`litmap` is a Python package for reproducible literature mapping. It is built around explicit run artifacts, a clean separation between analysis space and display space, and a Sphinx documentation site that is meant to be read as a real package site rather than a notebook dump.
+`litmap` is a minimal Python package for reproducible literature mapping.
+This repository is intentionally small. It keeps only the files required to install the package, document the package with Sphinx, and explain a lightweight workflow that does not depend on large downloaded datasets.
 
-- Read the docs: [https://dai540.github.io/litmap/](https://dai540.github.io/litmap/)
-- Browse tutorials: [Tutorials](docs/tutorials/index.md)
-- Start from the package overview: [Home](docs/index.md)
-- Inspect the package surface: [API](docs/api.md)
+## Scope
 
-## Install
+The package is deliberately narrow.
 
-Install from a local clone:
+- It defines a minimal public API.
+- It exposes a small CLI.
+- It documents a run layout for literature mapping work.
+- It ships a Sphinx documentation site with the four required sections:
+  Getting Started, Guides, Tutorials, and Reference.
+
+It does **not** ship large corpora, generated benchmark artifacts, virtual environments, package build tarballs, temporary directories, or heavy demo assets.
+
+## Design constraints
+
+This repository was rebuilt under the following constraints.
+
+1. Keep the package installable.
+2. Keep the directory tree small.
+3. Keep only required source files, documentation source, and deployment files.
+4. Avoid bundled data that materially increases repository size.
+5. Prefer clear documentation over large example outputs.
+
+## Installation
+
+Install the package itself:
 
 ```bash
-pip install -e .[yaml,docs]
+pip install -e .
 ```
 
-Install the broader analysis stack when needed:
+Install the documentation toolchain:
 
 ```bash
-pip install -e .[full]
+pip install -e .[docs]
 ```
 
-## Build the Sphinx docs
+## Minimal public API
+
+The package intentionally exports a very small interface.
+
+- `litmap.__version__`
+- `litmap.package_overview()`
+- `litmap.recommended_run_layout()`
+
+These are enough to explain what the package is for and what a run is expected to produce, without pretending that a large backend is already part of the package.
+
+## Command line interface
+
+The CLI is intentionally minimal.
+
+```bash
+litmap version
+litmap about
+litmap layout
+```
+
+- `version` prints the installed package version.
+- `about` prints a compact description of the package.
+- `layout` prints the recommended run directory structure.
+
+## Recommended run layout
+
+```text
+runs/
+  my-topic/
+    manifest.json
+    raw/
+    analysis/
+    reports/
+```
+
+This is documented as a contract, not as a promise that the repository already contains a full production pipeline.
+
+## Documentation
+
+The documentation site is built with Sphinx and is intended to be the main reading surface.
+
+- Home
+- Getting Started
+- Guides
+- Tutorials
+- Reference
+
+Build the documentation locally:
 
 ```bash
 sphinx-build -b html docs docs/_build/html
 ```
 
-## Get started
+## Documentation structure
 
-```bash
-litmap init-config --output configs/my-run.yaml
-litmap show-plan --config configs/default.yaml
-litmap describe-layout
-```
+The docs are intentionally lightweight.
 
-Then inspect:
+- **Getting Started** explains installation, the CLI, and the minimal run layout.
+- **Guides** explains the design principles and the intended engineering boundaries.
+- **Tutorials** provides a tiny no-download toy example so the package can be understood without shipping large assets.
+- **Reference** documents the public API and CLI.
 
-- `configs/default.yaml`
-- `docs/index.md`
-- `docs/tutorials/index.md`
-- `runs/<topic>/`
+## Lightweight tutorial policy
 
-## What this package is for
+The tutorial content avoids large downloads and avoids shipping heavy generated artifacts.
+The example analysis in the docs uses a tiny in-memory corpus defined directly in the article. That keeps the repository compliant with the size constraints while still making the package concrete.
 
-`litmap` is designed for questions like these:
+## Repository contents
 
-- what topical neighborhoods emerge in a literature corpus when cluster count is not fixed in advance
-- which papers belong to dense thematic clusters versus ambiguous bridge regions
-- how should clustering logic be separated from the 2D layout used for communication
-- what artifacts should be saved so the run remains interpretable later
+This repository now keeps only:
 
-## Public API
+- package metadata
+- package source
+- Sphinx source
+- lightweight SVG assets
+- GitHub Pages deployment workflow
 
-The intended public package surface is small:
+Everything else that was not required for the package itself was removed.
 
-- `litmap.load_config`
-- `litmap.describe_pipeline`
-- `litmap.run_pipeline`
-- `litmap.LitmapConfig`
-- `litmap.cli`
+## Author
 
-The project does not promise stability for undocumented internal details.
-
-## Current highlights
-
-- Sphinx-based package documentation with GitHub Pages deployment
-- tutorial-first case-study articles
-- explicit run layout with `manifest.json` and `config.snapshot.yaml`
-- architecture centered on analysis space versus display space
-- generated result artifacts such as `labels.csv`, `cluster_summary.csv`, and `map_interactive.html`
-
-## Current limitation
-
-The package surface and documentation are ahead of the final computational backend. `litmap` should currently be understood as a strong package and documentation scaffold with deterministic tutorial pipelines while the final embedding and clustering backend continues to mature.
-
-## Documentation map
-
-- [Home](docs/index.md)
-- [Tutorials](docs/tutorials/index.md)
-- [Getting started](docs/getting-started.md)
-- [Design](docs/design.md)
-- [API](docs/api.md)
+Author: **Dai**

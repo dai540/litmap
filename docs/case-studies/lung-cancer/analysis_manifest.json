@@ -1,9 +1,0 @@
-{
-  "slug": "lung-cancer",
-  "title": "Lung Cancer",
-  "record_count": 3000,
-  "analysis_backend": "tfidf_l2_pca_hdbscan_pca_plotly",
-  "cluster_count_non_noise": 22,
-  "noise_count": 0,
-  "generated_from": "docs\\tutorial-data\\lung-cancer.csv"
-}

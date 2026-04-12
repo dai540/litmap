@@ -1,9 +1,0 @@
-{
-  "slug": "adc-landscape",
-  "title": "Antibody-Drug Conjugates",
-  "record_count": 3000,
-  "analysis_backend": "tfidf_l2_pca_hdbscan_pca_plotly",
-  "cluster_count_non_noise": 21,
-  "noise_count": 1,
-  "generated_from": "docs\\tutorial-data\\adc-landscape.csv"
-}

@@ -3,38 +3,10 @@
   --pst-color-accent: #b65a2a;
 }
 
+.bd-main .bd-content .bd-article-container {
+  max-width: 900px;
+}
+
 .bd-header-announcement {
   font-weight: 600;
-}
-
-.bd-main .bd-content .bd-article-container {
-  max-width: 980px;
-}
-
-.hero-copy {
-  margin-bottom: 1.5rem;
-}
-
-.hero-copy p {
-  font-size: 1.08rem;
-  color: var(--pst-color-text-muted);
-}
-
-.summary-grid .sd-card {
-  height: 100%;
-}
-
-.artifact-list li,
-.docs-map li {
-  margin-bottom: 0.35rem;
-}
-
-.pipeline-figure {
-  margin-top: 1rem;
-}
-
-.pipeline-figure img {
-  width: 100%;
-  border-radius: 16px;
-  border: 1px solid var(--pst-color-border);
 }

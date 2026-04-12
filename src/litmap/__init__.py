@@ -1,14 +1,6 @@
-"""Public package interface for litmap."""
+"""Minimal public interface for litmap."""
 
-from .config.loader import load_config
-from .config.models import LitmapConfig
-from .pipeline.runner import describe_pipeline, run_pipeline
+from .core import package_overview, recommended_run_layout
 from .version import __version__
 
-__all__ = [
-    "LitmapConfig",
-    "__version__",
-    "describe_pipeline",
-    "load_config",
-    "run_pipeline",
-]
+__all__ = ["__version__", "package_overview", "recommended_run_layout"]
